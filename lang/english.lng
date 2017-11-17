@@ -1,0 +1,9 @@
+##grflangid 0x01
+
+# meta
+STR_GRF_NAME :{TITLE} {VERSION}
+STR_GRF_DESC :{GOLD}{TITLE}{BLACK} provides a variety of trains from Italy spanning the 1930s to the 2010s. All trains use the OpenGFX sprites.{}{}{COPYRIGHT}2017 Mattia Affabris
+STR_GRF_URL  :{URL}
+
+#steam
+STR_905_NAME :905 (Steam)
