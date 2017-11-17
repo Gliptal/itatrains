@@ -1,0 +1,7 @@
+if (param_rename) {
+    item(FEAT_ROADVEHS, item_roadveh_0, 0) {
+        property {
+            name: string(STR_ROAD_MPSREGALBUS);
+        }
+    }
+}

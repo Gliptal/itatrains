@@ -1,0 +1,8 @@
+if (param_align) {
+    train_width_32_px  = 1;
+    traininfo_y_offset = 2;
+}
+
+if (param_remove) {
+    disable_item(FEAT_TRAINS, 0, 115);
+}

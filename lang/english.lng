@@ -2,8 +2,19 @@
 
 # meta
 STR_GRF_NAME :{TITLE} {VERSION}
-STR_GRF_DESC :{GOLD}{TITLE}{BLACK} provides a variety of trains from Italy spanning the 1930s to the 2010s. All trains use the OpenGFX sprites.{}{}{COPYRIGHT}2017 Mattia Affabris
+STR_GRF_DESC :{BLACK}Programming: {SILVER}Mattia Affabris {COPYRIGHT} (2017){}{BLACK}Graphics: {SILVER}2CC Trains {COPYRIGHT} (2017){}{}{GOLD}{TITLE}{BLACK} provides a variety of trains from Italy, spanning the 1920s to the 2010s.
 STR_GRF_URL  :{URL}
 
-#steam
-STR_905_NAME :905 (Steam)
+# parameters
+STR_PARAM_ALIGN_NAME  :Fix alignment
+STR_PARAM_ALIGN_DESC  :Whether to fix the alignment of some UI elements.
+STR_PARAM_REMOVE_NAME :Remove default trains
+STR_PARAM_REMOVE_DESC :Whether to remove the default trains.
+STR_PARAM_RENAME_NAME :Rename default vehicles
+STR_PARAM_RENAME_DESC :Whether to rename all default vehicles.
+
+# road vehicles
+STR_ROAD_MPSREGALBUS :FIAT Bus
+
+# trains
+STR_TRAIN_STEAM_905_NAME :905
