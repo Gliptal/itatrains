@@ -1,7 +1,7 @@
 @ECHO OFF
 
 
-CALL make.bat
+CALL make.bat /q
 
 IF EXIST %GRF_NAME%.grf (
     ECHO [ TASK ] publishing .grf

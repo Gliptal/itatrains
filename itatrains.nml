@@ -1,104 +1,178 @@
 grf {
-    grfid: "MA\01\01";
-    name: string(STR_GRF_NAME);
-    desc: string(STR_GRF_DESC);
-    url : string(STR_GRF_URL);
-    version: 0;
-    min_compatible_version: 0;
+    grfid                  : "MA\01\01";
+    name                   : string(STR_GRF_NAME);
+    desc                   : string(STR_GRF_DESC);
+    url                    : string(STR_GRF_URL);
+    version                : 0;
+    min_compatible_version : 0;
 
-    //fix alignments
-    param {
-        param_align {
-            type     : bool;
-            name     : string(STR_PARAM_ALIGN_NAME);
-            desc     : string(STR_PARAM_ALIGN_DESC);
-            def_value: 1;
-        }
-    }
-
-    //replace default vehicles
     param {
         param_remove {
-            type     : bool;
-            name     : string(STR_PARAM_REMOVE_NAME);
-            desc     : string(STR_PARAM_REMOVE_DESC);
-            def_value: 1;
+            type      : bool;
+            name      : string(STR_PARAM_REMOVE_NAME);
+            desc      : string(STR_PARAM_REMOVE_DESC);
+            def_value : 1;
         }
     }
 
-    //rename all vehicles
     param {
         param_rename {
-            type     : bool;
-            name     : string(STR_PARAM_RENAME_NAME);
-            desc     : string(STR_PARAM_RENAME_DESC);
-            def_value: 1;
+            type      : bool;
+            name      : string(STR_PARAM_RENAME_NAME);
+            desc      : string(STR_PARAM_RENAME_DESC);
+            def_value : 1;
         }
     }
-}
-                 
-if (param_align) {
-    train_width_32_px  = 1;
-    traininfo_y_offset = 2;
+
+    param {
+        param_monorail {
+            type      : bool;
+            name      : string(STR_PARAM_MONORAIL_NAME);
+            desc      : string(STR_PARAM_MONORAIL_DESC);
+            def_value : 1;
+        }
+    }
+
+    param {
+        param_maglev {
+            type      : bool;
+            name      : string(STR_PARAM_MAGLEV_NAME);
+            desc      : string(STR_PARAM_MAGLEV_DESC);
+            def_value : 1;
+        }
+    }
+
+    param {
+        param_vehicles {
+            type      : bool;
+            name      : string(STR_PARAM_VEHICLES_NAME);
+            desc      : string(STR_PARAM_VEHICLES_DESC);
+            def_value : 1;
+        }
+    }
+
+    param {
+        param_trams {
+            type      : bool;
+            name      : string(STR_PARAM_TRAMS_NAME);
+            desc      : string(STR_PARAM_TRAMS_DESC);
+            def_value : 1;
+        }
+    }
+
+    param {
+        param_planes {
+            type      : bool;
+            name      : string(STR_PARAM_PLANES_NAME);
+            desc      : string(STR_PARAM_PLANES_DESC);
+            def_value : 1;
+        }
+    }
+
+    param {
+        param_helis {
+            type      : bool;
+            name      : string(STR_PARAM_HELIS_NAME);
+            desc      : string(STR_PARAM_HELIS_DESC);
+            def_value : 1;
+        }
+    }
 }
 
 if (param_remove) {
-    disable_item(FEAT_TRAINS, 0, 115);
+    // train engines
+    disable_item(FEAT_TRAINS, 0, 26);
+    // train wagons
+    disable_item(FEAT_TRAINS, 27, 53);
+    // monorail engines
+    disable_item(FEAT_TRAINS, 54, 56);
+    // monorail wagons
+    disable_item(FEAT_TRAINS, 57, 83);
+    // maglev engines
+    disable_item(FEAT_TRAINS, 84, 88);
+    // maglev wagons
+    disable_item(FEAT_TRAINS, 89, 115);
 }
-                 
-if (param_rename) {
-    item(FEAT_ROADVEHS, item_roadveh_0, 0) {
-        property {
-            name: string(STR_ROAD_MPSREGALBUS);
-        }
-    }
+
+if (param_monorail) {
+    // monorail wagons
+    disable_item(FEAT_TRAINS, 59, 83);
 }
-                 
+
+if (param_maglev) {
+    // maglev wagons
+    disable_item(FEAT_TRAINS, 91, 115);
+}
+
 railtypetable {
     RAIL, ELRL, MONO, MGLV
 }
 
 template tmpl_trains() {
     //left_x, upper_y, width, height, offset_x, offset_y
-    [ 0,      0,        8,    24,      -3,       -13]
-    [ 9,      0,       22,    17,     -16,        -9]
-    [ 32,     0,       32,    12,     -19,        -8]
-    [ 65,     0,       22,    17,      -7,       -10]
-    [ 88,     0,        8,    24,      -3,       -13]
-    [ 97,     0,       22,    17,     -16,        -9]
-    [ 120,    0,       32,    12,     -19,        -8]
-    [ 153,    0,       22,    17,      -7,       -10]
+    [ 1,      1,        8,    24,      -3,        -9]
+    [ 10,     1,       22,    20,     -17,       -11]
+    [ 33,     1,       32,    16,     -24,       -13]
+    [ 66,     1,       22,    20,     -10,       -15]
+    [ 89,     1,        8,    24,      -3,       -16]
+    [ 98,     1,       22,    20,     -12,       -15]
+    [ 121,    1,       32,    16,     -13,       -13]
+    [ 154,    1,       22,    20,      -4,       -12]
 }
 
-spriteset(spriteset_steam_905, "gfx/steam/905.png") {
+spriteset(spriteset_steam_740, "gfx/steam/740.png") {
     tmpl_trains()
 }
 
-item(FEAT_TRAINS, item_905, 1001) {
+item(FEAT_TRAINS, item_740, 1001) {
     property {
-        name:                         string(STR_TRAIN_STEAM_905_NAME);
-        climates_available:           bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        introduction_date:            date(1925, 1, 1);
-        model_life:                   VEHICLE_NEVER_EXPIRES;
-        vehicle_life:                 15;
-        reliability_decay:            20;
-        refittable_cargo_classes:     bitmask(NO_CARGO_CLASS);
-        non_refittable_cargo_classes: bitmask();
-        cost_factor:                  7;
-        running_cost_factor:          50;
-        sprite_id:                    SPRITE_ID_NEW_TRAIN;
-        speed:                        64 km/h;
-        track_type:                   RAIL;
-        power:                        304 hp;
-        running_cost_base:            RUNNING_COST_STEAM;
-        dual_headed:                  0;
-        cargo_capacity:               0;
-        weight:                       47 ton;
-        engine_class:                 ENGINE_CLASS_STEAM;
-        tractive_effort_coefficient:  0.3;
-        visual_effect_and_powered:    visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, DISABLE_WAGON_POWER);
+        track_type                   : RAIL;
+        engine_class                 : ENGINE_CLASS_STEAM;
+        name                         : string(STR_TRAIN_STEAM_740_NAME);
+        speed                        : 65 km/h;
+        power                        : 980 hp;
+        weight                       : 66 ton;
+        tractive_effort_coefficient  : 0.3;
+        climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date            : date(1920, 1, 1);
+        model_life                   : VEHICLE_NEVER_EXPIRES;
+        vehicle_life                 : 15;
+        reliability_decay            : 20;
+        cost_factor                  : 8;
+        running_cost_base            : RUNNING_COST_STEAM;
+        running_cost_factor          : 40;
+        dual_headed                  : 0;
+        cargo_capacity               : 0;
+        refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
+        non_refittable_cargo_classes : bitmask();
+        sprite_id                    : SPRITE_ID_NEW_TRAIN;
+        visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, DISABLE_WAGON_POWER);
+        misc_flags                   : bitmask(TRAIN_FLAG_2CC);
     }
     graphics {
-        default:                      spriteset_steam_905;
+        additional_text              : return string(STR_TRAIN_STEAM_740_DESC);
+        default                      : spriteset_steam_740;
     }
 }
+
+if (param_rename) {
+    item(FEAT_ROADVEHS, item_roadveh_0, 0) {
+        property {
+            name                         : string(STR_ROAD_MPSREGALBUS_NAME);
+        }
+    }
+}
+
+if (param_vehicles) {
+    item(FEAT_ROADVEHS, item_roadveh_0, 0) {
+        property {
+            speed                        : 50 km/h;
+            introduction_date            : date(1928, 1, 1);
+            cargo_capacity               : 24;
+        }
+        graphics {
+            additional_text              : return string(STR_ROAD_MPSREGALBUS_DESC);
+        }
+    }
+}
+

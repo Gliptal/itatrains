@@ -1,38 +1,80 @@
 grf {
-    grfid: "MA\01\01";
-    name: string(STR_GRF_NAME);
-    desc: string(STR_GRF_DESC);
-    url : string(STR_GRF_URL);
-    version: 0;
-    min_compatible_version: 0;
+    grfid                  : "MA\01\01";
+    name                   : string(STR_GRF_NAME);
+    desc                   : string(STR_GRF_DESC);
+    url                    : string(STR_GRF_URL);
+    version                : 0;
+    min_compatible_version : 0;
 
-    //fix alignments
-    param {
-        param_align {
-            type     : bool;
-            name     : string(STR_PARAM_ALIGN_NAME);
-            desc     : string(STR_PARAM_ALIGN_DESC);
-            def_value: 1;
-        }
-    }
-
-    //replace default vehicles
     param {
         param_remove {
-            type     : bool;
-            name     : string(STR_PARAM_REMOVE_NAME);
-            desc     : string(STR_PARAM_REMOVE_DESC);
-            def_value: 1;
+            type      : bool;
+            name      : string(STR_PARAM_REMOVE_NAME);
+            desc      : string(STR_PARAM_REMOVE_DESC);
+            def_value : 1;
         }
     }
 
-    //rename all vehicles
     param {
         param_rename {
-            type     : bool;
-            name     : string(STR_PARAM_RENAME_NAME);
-            desc     : string(STR_PARAM_RENAME_DESC);
-            def_value: 1;
+            type      : bool;
+            name      : string(STR_PARAM_RENAME_NAME);
+            desc      : string(STR_PARAM_RENAME_DESC);
+            def_value : 1;
+        }
+    }
+
+    param {
+        param_monorail {
+            type      : bool;
+            name      : string(STR_PARAM_MONORAIL_NAME);
+            desc      : string(STR_PARAM_MONORAIL_DESC);
+            def_value : 1;
+        }
+    }
+
+    param {
+        param_maglev {
+            type      : bool;
+            name      : string(STR_PARAM_MAGLEV_NAME);
+            desc      : string(STR_PARAM_MAGLEV_DESC);
+            def_value : 1;
+        }
+    }
+
+    param {
+        param_vehicles {
+            type      : bool;
+            name      : string(STR_PARAM_VEHICLES_NAME);
+            desc      : string(STR_PARAM_VEHICLES_DESC);
+            def_value : 1;
+        }
+    }
+
+    param {
+        param_trams {
+            type      : bool;
+            name      : string(STR_PARAM_TRAMS_NAME);
+            desc      : string(STR_PARAM_TRAMS_DESC);
+            def_value : 1;
+        }
+    }
+
+    param {
+        param_planes {
+            type      : bool;
+            name      : string(STR_PARAM_PLANES_NAME);
+            desc      : string(STR_PARAM_PLANES_DESC);
+            def_value : 1;
+        }
+    }
+
+    param {
+        param_helis {
+            type      : bool;
+            name      : string(STR_PARAM_HELIS_NAME);
+            desc      : string(STR_PARAM_HELIS_DESC);
+            def_value : 1;
         }
     }
 }

@@ -1,0 +1,40 @@
+if (param_remove) {
+    // train engines
+    disable_item(FEAT_TRAINS, 0, 26);
+    // train wagons
+    disable_item(FEAT_TRAINS, 27, 53);
+    // monorail engines
+    disable_item(FEAT_TRAINS, 54, 56);
+    // monorail wagons
+    disable_item(FEAT_TRAINS, 57, 83);
+    // maglev engines
+    disable_item(FEAT_TRAINS, 84, 88);
+    // maglev wagons
+    disable_item(FEAT_TRAINS, 89, 115);
+}
+
+if (param_monorail) {
+    // monorail wagons
+    disable_item(FEAT_TRAINS, 59, 83);
+}
+
+if (param_maglev) {
+    // maglev wagons
+    disable_item(FEAT_TRAINS, 91, 115);
+}
+
+railtypetable {
+    RAIL, ELRL, MONO, MGLV
+}
+
+template tmpl_trains() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ 1,      1,        8,    24,      -3,        -9]
+    [ 10,     1,       22,    20,     -17,       -11]
+    [ 33,     1,       32,    16,     -24,       -13]
+    [ 66,     1,       22,    20,     -10,       -15]
+    [ 89,     1,        8,    24,      -3,       -16]
+    [ 98,     1,       22,    20,     -12,       -15]
+    [ 121,    1,       32,    16,     -13,       -13]
+    [ 154,    1,       22,    20,      -4,       -12]
+}

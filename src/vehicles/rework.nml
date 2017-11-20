@@ -1,0 +1,12 @@
+if (param_vehicles) {
+    item(FEAT_ROADVEHS, item_roadveh_0, 0) {
+        property {
+            speed                        : 50 km/h;
+            introduction_date            : date(1928, 1, 1);
+            cargo_capacity               : 24;
+        }
+        graphics {
+            additional_text              : return string(STR_ROAD_MPSREGALBUS_DESC);
+        }
+    }
+}

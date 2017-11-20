@@ -2,19 +2,31 @@
 
 # meta
 STR_GRF_NAME :{TITLE} {VERSION}
-STR_GRF_DESC :{BLACK}Programming: {SILVER}Mattia Affabris {COPYRIGHT} (2017){}{BLACK}Graphics: {SILVER}2CC Trains {COPYRIGHT} (2017){}{}{GOLD}{TITLE}{BLACK} provides a variety of trains from Italy, spanning the 1920s to the 2010s.
+STR_GRF_DESC :Programming:{SILVER} Mattia Affabris {COPYRIGHT} (2017){BLACK}{}Graphics:{SILVER} 2CC Trains {COPYRIGHT} (2017){BLACK}{}License:{SILVER} Creative Commons BY NC SA 4.0{BLACK}{}{}{}{GOLD}{TITLE}{BLACK} provides a trainset based on engines and wagons from Italy, spanning the 1920s to the 2010s. It also optionally enhances vehicles, trams, ships, planes, and helicopters.{}{}The following engines are part of the set:{}- 740 (steam){}
 STR_GRF_URL  :{URL}
 
 # parameters
-STR_PARAM_ALIGN_NAME  :Fix alignment
-STR_PARAM_ALIGN_DESC  :Whether to fix the alignment of some UI elements.
-STR_PARAM_REMOVE_NAME :Remove default trains
-STR_PARAM_REMOVE_DESC :Whether to remove the default trains.
-STR_PARAM_RENAME_NAME :Rename default vehicles
-STR_PARAM_RENAME_DESC :Whether to rename all default vehicles.
-
-# road vehicles
-STR_ROAD_MPSREGALBUS :FIAT Bus
+STR_PARAM_REMOVE_NAME   :Remove default trains
+STR_PARAM_REMOVE_DESC   :Remove the default trains from the available pool: this includes train engines and carriages, monorail engines and carriages, and maglev engines and carriages.
+STR_PARAM_RENAME_NAME   :Rename default vehicles
+STR_PARAM_RENAME_DESC   :Rename all vehicles and trams (from the Generic Tram Set) to models used in Italy. Ships, planes, and helicopters are renamed to their real-life counterparts.
+STR_PARAM_MONORAIL_NAME :Rework monorail
+STR_PARAM_MONORAIL_DESC :Only passengers and mail wagons are available, all engines run at slower speeds.
+STR_PARAM_MAGLEV_NAME   :Rework maglev
+STR_PARAM_MAGLEV_DESC   :Only passengers and mail wagons are available.
+STR_PARAM_VEHICLES_NAME :Rework vehicles
+STR_PARAM_VEHICLES_DESC :Different introduction dates, cargo capacities, and speeds.
+STR_PARAM_TRAMS_NAME    :Rework trams
+STR_PARAM_TRAMS_DESC    :Different speeds and cargo capacities.
+STR_PARAM_PLANES_NAME   :Rework planes
+STR_PARAM_PLANES_DESC   :Different costs and cargo capacities.
+STR_PARAM_HELIS_NAME    :Rework helicopters
+STR_PARAM_HELIS_DESC    :Different costs and cargo capacities.
 
 # trains
-STR_TRAIN_STEAM_905_NAME :905
+STR_TRAIN_STEAM_740_NAME :740
+STR_TRAIN_STEAM_740_DESC :Usage:{GOLD} Passengers/Freight{BLACK}{}Line:{GOLD} Local{BLACK}{}Terrain:{GOLD} Hilly/Mountaneous{BLACK}
+
+# road vehicles
+STR_ROAD_MPSREGALBUS_NAME :Lancia Omicron
+STR_ROAD_MPSREGALBUS_DESC :Line:{GOLD} Urban{BLACK}
