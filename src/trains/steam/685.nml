@@ -1,24 +1,23 @@
-spriteset(spriteset_steam_740, "gfx/steam/740.png") {
-    tmpl_train_740()
+spriteset(spriteset_steam_685, "gfx/steam/746_685_691.png") {
+    tmpl_train_746_685_691()
 }
 
-item(FEAT_TRAINS, item_740, 1001) {
+item(FEAT_TRAINS, item_685, 1002) {
     property {
         track_type                   : RAIL;
         engine_class                 : ENGINE_CLASS_STEAM;
-        name                         : string(STR_TRAIN_STEAM_740_NAME);
-        speed                        : 65 km/h;
-        power                        : 980 hp;
-        weight                       : 66 ton;
+        name                         : string(STR_TRAIN_STEAM_685_NAME);
+        speed                        : 120 km/h;
+        power                        : 1250 hp;
+        weight                       : 71 ton;
         tractive_effort_coefficient  : 0.3;
         climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        introduction_date            : date(1910, 1, 1);
+        introduction_date            : date(1912, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
         vehicle_life                 : 30;
-        reliability_decay            : 10; // low
-        cost_factor                  : 8; // 25.000
+        cost_factor                  : 16; // 50.000
         running_cost_base            : RUNNING_COST_STEAM;
-        running_cost_factor          : 50; // 2.186
+        running_cost_factor          : 250; // 10.936
         cargo_capacity               : 0;
         refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
         non_refittable_cargo_classes : bitmask();
@@ -28,7 +27,7 @@ item(FEAT_TRAINS, item_740, 1001) {
         misc_flags                   : bitmask(TRAIN_FLAG_2CC);
     }
     graphics {
-        additional_text              : return string(STR_TRAIN_STEAM_740_DESC);
-        default                      : spriteset_steam_740;
+        additional_text              : return string(STR_TRAIN_STEAM_685_DESC);
+        default                      : spriteset_steam_685;
     }
 }

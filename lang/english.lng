@@ -2,7 +2,7 @@
 
 # meta
 STR_GRF_NAME :{TITLE} {VERSION}
-STR_GRF_DESC :Programming:{SILVER} Mattia Affabris {COPYRIGHT} (2017){BLACK}{}Graphics:{SILVER} 2CC Trains {COPYRIGHT} (2017){BLACK}{}License:{SILVER} Creative Commons BY NC SA 4.0{BLACK}{}{}{}{GOLD}{TITLE}{BLACK} provides a trainset based on engines and wagons from Italy, spanning the 1920s to the 2010s. It also optionally enhances vehicles, trams, ships, planes, and helicopters.{}{}The following engines are part of the set:{}- 740 (steam){}
+STR_GRF_DESC :Programming:{SILVER} Mattia Affabris {COPYRIGHT} (2017){BLACK}{}Graphics:{SILVER} 2CC Trains {COPYRIGHT} (2017){BLACK}{}License:{SILVER} Creative Commons BY NC SA 4.0{BLACK}{}{}{}{GOLD}{TITLE}{BLACK} provides a trainset based on engines and wagons from Italy, spanning the 1910s to the 2010s. It also optionally enhances vehicles, trams, ships, planes, and helicopters.{}{}The following engines are part of the set:{}- 740 (steam){}- 685 (steam){}- 746 (steam){}- 691 (steam)
 STR_GRF_URL  :{URL}
 
 # parameters
@@ -23,9 +23,17 @@ STR_PARAM_PLANES_DESC   :Different costs and cargo capacities.
 STR_PARAM_HELIS_NAME    :Rework helicopters
 STR_PARAM_HELIS_DESC    :Different costs and cargo capacities.
 
-# trains
-STR_TRAIN_STEAM_740_NAME :740
-STR_TRAIN_STEAM_740_DESC :Usage:{GOLD} Passengers/Freight{BLACK}{}Line:{GOLD} Local{BLACK}{}Terrain:{GOLD} Hilly/Mountaneous{BLACK}
+# trains (steam)
+STR_TRAIN_STEAM_740_NAME      :740
+STR_TRAIN_STEAM_740_DESC      :Decay:{GOLD} Low{BLACK}{}{}Usage:{GOLD} Passengers/Freight{BLACK}{}Line:{GOLD} Local{BLACK}{}Terrain:{GOLD} Hilly\\Mountainous{BLACK}
+STR_TRAIN_STEAM_685_NAME      :685
+STR_TRAIN_STEAM_685_DESC      :Decay:{GOLD} Normal{BLACK}{}{}Usage:{GOLD} Passengers{BLACK}{}Line:{GOLD} Express{BLACK}{}Terrain:{GOLD} Flat{BLACK}
+STR_TRAIN_STEAM_746_NAME      :746
+STR_TRAIN_STEAM_746_DESC      :Decay:{GOLD} High{BLACK}{}{}Usage:{GOLD} Passengers{BLACK}{}Line:{GOLD} Local{BLACK}{}Terrain:{GOLD} Flat{BLACK}
+STR_TRAIN_STEAM_691_NAME      :691
+STR_TRAIN_STEAM_691_DESC      :Decay:{GOLD} Normal{BLACK}{}{}Usage:{GOLD} Passengers{BLACK}{}Line:{GOLD} Express{BLACK}{}Terrain:{GOLD} Flat{BLACK}
+STR_TRAIN_STEAM_TIPO1910_NAME :Tipo 1910
+STR_TRAIN_STEAM_TIPO1910_DESC :Designed:{GOLD} 1910{BLACK}{}{}Line:{GOLD} Local\\Express{BLACK}
 
 # road vehicles
 STR_ROAD_MPSREGALBUS_NAME :Lancia Omicron

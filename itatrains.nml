@@ -108,20 +108,112 @@ railtypetable {
     RAIL, ELRL, MONO, MGLV
 }
 
-template tmpl_trains() {
+template tmpl_train_740() {
     //left_x, upper_y, width, height, offset_x, offset_y
-    [ 1,      1,        8,    24,      -3,        -9]
-    [ 10,     1,       22,    20,     -17,       -11]
-    [ 33,     1,       32,    16,     -24,       -13]
-    [ 66,     1,       22,    20,     -10,       -15]
-    [ 89,     1,        8,    24,      -3,       -16]
-    [ 98,     1,       22,    20,     -12,       -15]
-    [ 121,    1,       32,    16,     -13,       -13]
-    [ 154,    1,       22,    20,      -4,       -12]
+    [ 1,      1,        8,    24,      -3,        -9] // N
+    [ 10,     1,       22,    20,     -18,       -12] // NE
+    [ 33,     1,       32,    16,     -24,       -13] // E
+    [ 66,     1,       22,    20,     -10,       -15] // SN
+    [ 89,     1,        8,    24,      -3,       -16] // S
+    [ 98,     1,       22,    20,     -12,       -15] // SW
+    [ 121,    1,       32,    16,     -13,       -13] // W
+    [ 154,    1,       22,    20,      -4,       -12] // NW
+}
+
+template tmpl_train_746_685_691() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ 1,      1,        8,    24,      -3,        -9] // N
+    [ 10,     1,       22,    20,     -18,       -12] // NE
+    [ 33,     1,       32,    16,     -24,       -13] // E
+    [ 66,     1,       22,    20,     -10,       -15] // SN
+    [ 89,     1,        8,    24,      -3,       -16] // S
+    [ 98,     1,       22,    20,     -12,       -15] // SW
+    [ 121,    1,       32,    16,     -12,       -13] // W
+    [ 154,    1,       22,    20,      -4,       -12] // NW
+}
+
+template tmpl_train_Tipo1910() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ 1,      1,        8,    24,      -3,        -9] // N
+    [ 10,     1,       22,    20,     -18,       -12] // NE
+    [ 33,     1,       32,    16,     -24,       -13] // E
+    [ 66,     1,       22,    20,     -10,       -15] // SN
+    [ 89,     1,        8,    24,      -3,       -16] // S
+    [ 98,     1,       22,    20,     -12,       -15] // SW
+    [ 121,    1,       32,    16,     -12,       -13] // W
+    [ 154,    1,       22,    20,      -4,       -12] // NW
+}
+
+spriteset(spriteset_steam_685, "gfx/steam/746_685_691.png") {
+    tmpl_train_746_685_691()
+}
+
+item(FEAT_TRAINS, item_685, 1002) {
+    property {
+        track_type                   : RAIL;
+        engine_class                 : ENGINE_CLASS_STEAM;
+        name                         : string(STR_TRAIN_STEAM_685_NAME);
+        speed                        : 120 km/h;
+        power                        : 1250 hp;
+        weight                       : 71 ton;
+        tractive_effort_coefficient  : 0.3;
+        climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date            : date(1912, 1, 1);
+        model_life                   : VEHICLE_NEVER_EXPIRES;
+        vehicle_life                 : 30;
+        cost_factor                  : 16; // 50.000
+        running_cost_base            : RUNNING_COST_STEAM;
+        running_cost_factor          : 250; // 10.936
+        cargo_capacity               : 0;
+        refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
+        non_refittable_cargo_classes : bitmask();
+        dual_headed                  : 0;
+        sprite_id                    : SPRITE_ID_NEW_TRAIN;
+        visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
+        misc_flags                   : bitmask(TRAIN_FLAG_2CC);
+    }
+    graphics {
+        additional_text              : return string(STR_TRAIN_STEAM_685_DESC);
+        default                      : spriteset_steam_685;
+    }
+}
+
+spriteset(spriteset_steam_691, "gfx/steam/746_685_691.png") {
+    tmpl_train_746_685_691()
+}
+
+item(FEAT_TRAINS, item_691, 1004) {
+    property {
+        track_type                   : RAIL;
+        engine_class                 : ENGINE_CLASS_STEAM;
+        name                         : string(STR_TRAIN_STEAM_691_NAME);
+        speed                        : 130 km/h;
+        power                        : 1750 hp;
+        weight                       : 95 ton;
+        tractive_effort_coefficient  : 0.3;
+        climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date            : date(1930, 1, 1);
+        model_life                   : VEHICLE_NEVER_EXPIRES;
+        vehicle_life                 : 30;
+        cost_factor                  : 32; // 100.000
+        running_cost_base            : RUNNING_COST_STEAM;
+        running_cost_factor          : 250; // 10.936
+        cargo_capacity               : 0;
+        refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
+        non_refittable_cargo_classes : bitmask();
+        dual_headed                  : 0;
+        sprite_id                    : SPRITE_ID_NEW_TRAIN;
+        visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
+        misc_flags                   : bitmask(TRAIN_FLAG_2CC);
+    }
+    graphics {
+        additional_text              : return string(STR_TRAIN_STEAM_691_DESC);
+        default                      : spriteset_steam_691;
+    }
 }
 
 spriteset(spriteset_steam_740, "gfx/steam/740.png") {
-    tmpl_trains()
+    tmpl_train_740()
 }
 
 item(FEAT_TRAINS, item_740, 1001) {
@@ -134,24 +226,95 @@ item(FEAT_TRAINS, item_740, 1001) {
         weight                       : 66 ton;
         tractive_effort_coefficient  : 0.3;
         climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        introduction_date            : date(1920, 1, 1);
+        introduction_date            : date(1910, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
-        vehicle_life                 : 15;
-        reliability_decay            : 20;
-        cost_factor                  : 8;
+        vehicle_life                 : 30;
+        reliability_decay            : 10; // low
+        cost_factor                  : 8; // 25.000
         running_cost_base            : RUNNING_COST_STEAM;
-        running_cost_factor          : 40;
-        dual_headed                  : 0;
+        running_cost_factor          : 50; // 2.186
         cargo_capacity               : 0;
         refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
         non_refittable_cargo_classes : bitmask();
+        dual_headed                  : 0;
         sprite_id                    : SPRITE_ID_NEW_TRAIN;
-        visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_STEAM, 0, DISABLE_WAGON_POWER);
+        visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
         misc_flags                   : bitmask(TRAIN_FLAG_2CC);
     }
     graphics {
         additional_text              : return string(STR_TRAIN_STEAM_740_DESC);
         default                      : spriteset_steam_740;
+    }
+}
+
+spriteset(spriteset_steam_746, "gfx/steam/746_685_691.png") {
+    tmpl_train_746_685_691()
+}
+
+item(FEAT_TRAINS, item_746, 1003) {
+    property {
+        track_type                   : RAIL;
+        engine_class                 : ENGINE_CLASS_STEAM;
+        name                         : string(STR_TRAIN_STEAM_746_NAME);
+        speed                        : 100 km/h;
+        power                        : 1600 hp;
+        weight                       : 94 ton;
+        tractive_effort_coefficient  : 0.3;
+        climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date            : date(1922, 1, 1);
+        model_life                   : VEHICLE_NEVER_EXPIRES;
+        vehicle_life                 : 30;
+        reliability_decay            : 30; // high
+        cost_factor                  : 24; // 75.000
+        running_cost_base            : RUNNING_COST_STEAM;
+        running_cost_factor          : 100; // 4.374
+        cargo_capacity               : 0;
+        refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
+        non_refittable_cargo_classes : bitmask();
+        dual_headed                  : 0;
+        sprite_id                    : SPRITE_ID_NEW_TRAIN;
+        visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
+        misc_flags                   : bitmask(TRAIN_FLAG_2CC);
+    }
+    graphics {
+        additional_text              : return string(STR_TRAIN_STEAM_746_DESC);
+        default                      : spriteset_steam_746;
+    }
+}
+
+spriteset(spriteset_steam_Tipo1910, "gfx/steam/Tipo1910.png") {
+    tmpl_train_Tipo1910()
+}
+
+item(FEAT_TRAINS, item_Tipo1910, 10001) {
+    property {
+        track_type                   : RAIL;
+        engine_class                 : ENGINE_CLASS_STEAM;
+        name                         : string(STR_TRAIN_STEAM_TIPO1910_NAME);
+        speed                        : 90 km/h;
+        power                        : 0 hp;
+        weight                       : 23 ton;
+        tractive_effort_coefficient  : 0.3;
+        air_drag_coefficient         : 0;
+        climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date            : date(1910, 1, 1);
+        model_life                   : VEHICLE_NEVER_EXPIRES;
+        vehicle_life                 : 30;
+        reliability_decay            : 0;
+        cost_factor                  : 150; // 1.562
+        running_cost_base            : RUNNING_COST_NONE;
+        cargo_capacity               : 59;
+        refittable_cargo_classes     : bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes : bitmask();
+        dual_headed                  : 0;
+        length                       : 4;
+        sprite_id                    : SPRITE_ID_NEW_TRAIN;
+        visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+        misc_flags                   : bitmask(TRAIN_FLAG_2CC);
+    }
+    graphics {
+        additional_text              : return string(STR_TRAIN_STEAM_TIPO1910_DESC);
+        default                      : spriteset_steam_Tipo1910;
     }
 }
 

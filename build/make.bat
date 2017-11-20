@@ -1,6 +1,10 @@
 @ECHO OFF
 
 
+IF "%1"=="/s" (
+    GOTO Skip
+)
+
 CD ..
 
 ECHO [ TASK ] loading configuration
@@ -22,6 +26,8 @@ TYPE nul > %NML_NAME%.nml
 ECHO [ TASK ] removing old .grf
 
 DEL %GRF_NAME%.grf >nul 2>nul
+
+:Skip
 
 ECHO [ TASK ] generating new .grf
 

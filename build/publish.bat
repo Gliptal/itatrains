@@ -3,14 +3,22 @@
 
 CALL make.bat /q
 
-IF EXIST %GRF_NAME%.grf (
-    ECHO [ TASK ] publishing .grf
+IF ERRORLEVEL 1 (
+    ECHO [ TASK ] finding error
 
-    COPY /Y %GRF_NAME%.grf C:\Users\Utente\Documents\OpenTTD\newgrf\data\%GRF_NAME%.grf >nul 2>nul
+    CALL build\make.bat /s
 
-    IF NOT ERRORLEVEL 1 (
-        ECHO [  OK  ] .grf published
-    ) ELSE (
-        ECHO [ FAIL ] publishing .grf
-    )
+    GOTO End
 )
+
+ECHO [ TASK ] publishing .grf
+
+COPY /Y %GRF_NAME%.grf C:\Users\Utente\Documents\OpenTTD\newgrf\data\%GRF_NAME%.grf >nul 2>nul
+
+IF NOT ERRORLEVEL 1 (
+    ECHO [  OK  ] .grf published
+) ELSE (
+    ECHO [ FAIL ] publishing .grf
+)
+
+:End
