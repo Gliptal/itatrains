@@ -2,7 +2,7 @@
 
 # meta
 STR_GRF_NAME :{TITLE} {VERSION}
-STR_GRF_DESC :Programming:{SILVER} Mattia Affabris {COPYRIGHT} (2017){BLACK}{}Graphics:{SILVER} 2CC Trains {COPYRIGHT} (2017){BLACK}{}License:{SILVER} Creative Commons BY NC SA 4.0{BLACK}{}{}{}{GOLD}{TITLE}{BLACK} provides a trainset based on engines and wagons from Italy, spanning the 1910s to the 2010s. It also optionally enhances vehicles, trams, ships, planes, and helicopters.{}{}The following engines are part of the set:{}- 740 (steam){}- 685 (steam){}- 746 (steam){}- 691 (steam)
+STR_GRF_DESC :Programming:{SILVER} Mattia Affabris {COPYRIGHT} (2017){BLACK}{}Graphics:{SILVER}Modified from 2CC Trains {COPYRIGHT} (2017){BLACK}{}License:{SILVER} Creative Commons BY NC SA 4.0{BLACK}{}{}{}{GOLD}{TITLE}{BLACK} provides a trainset based on engines and carriages from Italy, spanning the 1910s to the 2010s. It also optionally enhances vehicles, trams, ships, planes, and helicopters.
 STR_GRF_URL  :{URL}
 
 # parameters
@@ -11,9 +11,9 @@ STR_PARAM_REMOVE_DESC   :Remove the default trains from the available pool: this
 STR_PARAM_RENAME_NAME   :Rename default vehicles
 STR_PARAM_RENAME_DESC   :Rename all vehicles and trams (from the Generic Tram Set) to models used in Italy. Ships, planes, and helicopters are renamed to their real-life counterparts.
 STR_PARAM_MONORAIL_NAME :Rework monorail
-STR_PARAM_MONORAIL_DESC :Only passengers and mail wagons are available, all engines run at slower speeds.
+STR_PARAM_MONORAIL_DESC :Only passengers and mail carriages are available, all engines run at slower speeds.
 STR_PARAM_MAGLEV_NAME   :Rework maglev
-STR_PARAM_MAGLEV_DESC   :Only passengers and mail wagons are available.
+STR_PARAM_MAGLEV_DESC   :Only passengers and mail carriages are available.
 STR_PARAM_VEHICLES_NAME :Rework vehicles
 STR_PARAM_VEHICLES_DESC :Different introduction dates, cargo capacities, and speeds.
 STR_PARAM_TRAMS_NAME    :Rework trams
@@ -32,8 +32,14 @@ STR_TRAIN_STEAM_746_NAME      :746
 STR_TRAIN_STEAM_746_DESC      :Decay:{GOLD} High{BLACK}{}{}Usage:{GOLD} Passengers{BLACK}{}Line:{GOLD} Local{BLACK}{}Terrain:{GOLD} Flat{BLACK}
 STR_TRAIN_STEAM_691_NAME      :691
 STR_TRAIN_STEAM_691_DESC      :Decay:{GOLD} Normal{BLACK}{}{}Usage:{GOLD} Passengers{BLACK}{}Line:{GOLD} Express{BLACK}{}Terrain:{GOLD} Flat{BLACK}
-STR_TRAIN_STEAM_TIPO1910_NAME :Tipo 1910
-STR_TRAIN_STEAM_TIPO1910_DESC :Designed:{GOLD} 1910{BLACK}{}{}Line:{GOLD} Local\\Express{BLACK}
+
+# carriages
+STR_CARRIAGE_TIPO1910_NAME  :Tipo 1910
+STR_CARRIAGE_TIPO1910_DESC  :Designed:{GOLD} 1910{BLACK}{}{}Line:{GOLD} Local\\Express{BLACK}
+STR_CARRIAGE_TIPO1928R_NAME :Tipo 1928R
+STR_CARRIAGE_TIPO1928R_DESC :Designed:{GOLD} 1931{BLACK}{}{}Line:{GOLD} Local{BLACK}
+STR_CARRIAGE_TIPO1937_NAME  :Tipo 1937
+STR_CARRIAGE_TIPO1937_DESC  :Designed:{GOLD} 1938{BLACK}{}{}Line:{GOLD} Express{BLACK}
 
 # road vehicles
 STR_ROAD_MPSREGALBUS_NAME :Lancia Omicron

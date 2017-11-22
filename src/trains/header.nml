@@ -1,27 +1,29 @@
 if (param_remove) {
     // train engines
     disable_item(FEAT_TRAINS, 0, 26);
-    // train wagons
+    // train carriages
     disable_item(FEAT_TRAINS, 27, 53);
     // monorail engines
     disable_item(FEAT_TRAINS, 54, 56);
-    // monorail wagons
+    // monorail carriages
     disable_item(FEAT_TRAINS, 57, 83);
     // maglev engines
     disable_item(FEAT_TRAINS, 84, 88);
-    // maglev wagons
+    // maglev carriages
     disable_item(FEAT_TRAINS, 89, 115);
 }
 
 if (param_monorail) {
-    // monorail wagons
+    // monorail carriages
     disable_item(FEAT_TRAINS, 59, 83);
 }
 
 if (param_maglev) {
-    // maglev wagons
+    // maglev carriages
     disable_item(FEAT_TRAINS, 91, 115);
 }
+
+traininfo_y_offset = 2;
 
 railtypetable {
     RAIL, ELRL, MONO, MGLV

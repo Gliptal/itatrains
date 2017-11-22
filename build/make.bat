@@ -1,21 +1,17 @@
 @ECHO OFF
 
 
-IF "%1"=="/s" (
-    GOTO Skip
-)
-
 CD ..
 
-ECHO [ TASK ] loading configuration
+ECHO %TIME:~0,8% [ TASK ] loading configuration
 
 CALL build\config.bat
 
-ECHO [ TASK ] removing old .nml
+ECHO %TIME:~0,8% [ TASK ] removing old .nml
 
 DEL %NML_NAME%.nml >nul 2>nul
 
-ECHO [ TASK ] generating new .nml
+ECHO %TIME:~0,8% [ TASK ] generating new .nml
 
 TYPE nul > %NML_NAME%.nml
 (for %%f in (%files%) do (
@@ -23,22 +19,25 @@ TYPE nul > %NML_NAME%.nml
     ECHO/
 )) >> %NML_NAME%.nml
 
-ECHO [ TASK ] removing old .grf
+ECHO %TIME:~0,8% [ TASK ] replacing constants
+
+FOR /F "tokens=1,3" %%A IN (src\%CONSTANTS%.nml) DO (
+    ssed --in-place=.bck s/%%A/%%B/ itatrains.nml
+    DEL %NML_NAME%.nml.bck >nul 2>nul
+)
+
+ECHO %TIME:~0,8% [  OK  ] constants replaced
+
+ECHO %TIME:~0,8% [ TASK ] removing old .grf
 
 DEL %GRF_NAME%.grf >nul 2>nul
 
-:Skip
+ECHO %TIME:~0,8% [ TASK ] generating new .grf
 
-ECHO [ TASK ] generating new .grf
-
-IF "%1"=="/q" (
-    nmlc --grf %GRF_NAME%.grf %NML_NAME%.nml >nul 2>nul
-) ELSE (
-    nmlc --grf %GRF_NAME%.grf %NML_NAME%.nml
-)
+nmlc --quiet --grf %GRF_NAME%.grf %NML_NAME%.nml
 
 IF NOT ERRORLEVEL 1 (
-    ECHO [  OK  ] .grf generated
+    ECHO %TIME:~0,8% [  OK  ] .grf generated
 ) ELSE (
-    ECHO [ FAIL ] generating .grf
+    ECHO %TIME:~0,8% [ FAIL ] generating .grf
 )

@@ -1,0 +1,23 @@
+template tmpl_train_steam_purchase(x) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [                                                    ] // N
+    [                                                    ] // NE
+    [                                                    ] // E
+    [                                                    ] // SE
+    [                                                    ] // S
+    [                                                    ] // SW
+    [ 121,      1,      32,    16,       x / 4,  -48 / 4 ] // W
+    [                                                    ] // NW
+}
+
+template tmpl_carriage_purchase(x) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [                                                    ] // N
+    [                                                    ] // NE
+    [                                                    ] // E
+    [                                                    ] // SE
+    [                                                    ] // S
+    [                                                    ] // SW
+    [ 121,      1,      32,    16,       x / 4,  -48 / 4 ] // W
+    [                                                    ] // NW
+}

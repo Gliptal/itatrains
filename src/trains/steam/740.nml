@@ -1,5 +1,9 @@
 spriteset(spriteset_steam_740, "gfx/steam/740.png") {
-    tmpl_train_740()
+    tmpl_train_steam()
+}
+
+spriteset(spriteset_steam_740_purchase, "gfx/steam/740.png") {
+    tmpl_train_steam_purchase(-58)
 }
 
 item(FEAT_TRAINS, item_740, 1001) {
@@ -15,10 +19,10 @@ item(FEAT_TRAINS, item_740, 1001) {
         introduction_date            : date(1910, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
         vehicle_life                 : 30;
-        reliability_decay            : 10; // low
-        cost_factor                  : 8; // 25.000
+        reliability_decay            : ENGINE_DECAY_LOW;
+        cost_factor                  : ENGINE_STEAM_COST_MINIMAL;
         running_cost_base            : RUNNING_COST_STEAM;
-        running_cost_factor          : 50; // 2.186
+        running_cost_factor          : ENGINE_STEAM_UPKEEP_LOW;
         cargo_capacity               : 0;
         refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
         non_refittable_cargo_classes : bitmask();
@@ -29,6 +33,7 @@ item(FEAT_TRAINS, item_740, 1001) {
     }
     graphics {
         additional_text              : return string(STR_TRAIN_STEAM_740_DESC);
+        purchase                     : spriteset_steam_740_purchase;
         default                      : spriteset_steam_740;
     }
 }
