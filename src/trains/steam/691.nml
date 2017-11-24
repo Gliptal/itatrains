@@ -2,8 +2,27 @@ spriteset(spriteset_steam_691, "gfx/steam/746_685_691.png") {
     tmpl_train_steam()
 }
 
+spriteset(spriteset_steam_691_tender, "gfx/steam/746_685_691.png") {
+    tmpl_train_tender()
+}
+
 spriteset(spriteset_steam_691_purchase, "gfx/steam/746_685_691.png") {
-    tmpl_train_steam_purchase(-52)
+    tmpl_train_steam_purchase()
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_691_length, position_in_vehid_chain % 2) {
+   0      : 6;
+   4;
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_691_position, position_in_vehid_chain % 2) {
+   0      : spriteset_steam_691;
+   1      : spriteset_steam_691_tender;
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_691_tender, extra_callback_info1) {
+   1      : return item_691;
+   return   CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
 item(FEAT_TRAINS, item_691, 1004) {
@@ -19,13 +38,14 @@ item(FEAT_TRAINS, item_691, 1004) {
         introduction_date            : date(1930, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
         vehicle_life                 : 30;
-        cost_factor                  : ENGINE_STEAM_COST_HIGH;
+        cost_factor                  : ENGINE_STEAM_COST_S;
         running_cost_base            : RUNNING_COST_STEAM;
-        running_cost_factor          : ENGINE_STEAM_UPKEEP_HIGH;
+        running_cost_factor          : ENGINE_STEAM_UPKEEP_L;
         cargo_capacity               : 0;
         refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
         non_refittable_cargo_classes : bitmask();
         dual_headed                  : 0;
+        length                       : 6;
         sprite_id                    : SPRITE_ID_NEW_TRAIN;
         visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
         misc_flags                   : bitmask(TRAIN_FLAG_2CC);
@@ -33,6 +53,8 @@ item(FEAT_TRAINS, item_691, 1004) {
     graphics {
         additional_text              : return string(STR_TRAIN_STEAM_691_DESC);
         purchase                     : spriteset_steam_691_purchase;
-        default                      : spriteset_steam_691;
+        articulated_part             : switch_steam_691_tender;
+        length                       : switch_steam_691_length;
+        default                      : switch_steam_691_position;
     }
 }

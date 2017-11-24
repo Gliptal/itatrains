@@ -1,0 +1,45 @@
+template tmpl_train_steam_purchase() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [   1,     51,      64,    12,     -36,       -8 ] // W
+}
+
+template tmpl_carriage_purchase() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ 121,      1,      32,    16,     -16,      -12 ] // W
+}
+
+template tmpl_train_steam() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [   1,      1,       8,    24,      -3,      -12 ] // N
+    [  10,      1,      22,    20,     -14,      -12 ] // NE
+    [  33,      1,      32,    16,     -16,      -12 ] // E
+    [  66,      1,      22,    20,      -6,      -12 ] // SE
+    [  89,      1,       8,    24,      -3,      -12 ] // S
+    [  98,      1,      22,    20,     -14,      -12 ] // SW
+    [ 121,      1,      32,    16,     -16,      -12 ] // W
+    [ 154,      1,      22,    20,      -6,      -12 ] // NW
+}
+
+template tmpl_train_tender() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [   1,     26,       8,    24,      -3,      -12 ] // N
+    [  10,     26,      22,    20,     -14,      -12 ] // NE
+    [  33,     26,      32,    16,     -16,      -12 ] // E
+    [  66,     26,      22,    20,      -6,      -12 ] // SE
+    [  89,     26,       8,    24,      -3,      -12 ] // S
+    [  98,     26,      22,    20,     -14,      -12 ] // SW
+    [ 121,     26,      32,    16,     -16,      -12 ] // W
+    [ 154,     26,      22,    20,      -6,      -12 ] // NW
+}
+
+template tmpl_carriage() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [   1,      1,       8,    24,      -3,      -12 ] // N
+    [  10,      1,      22,    20,     -14,      -12 ] // NE
+    [  33,      1,      32,    16,     -16,      -12 ] // E
+    [  66,      1,      22,    20,      -6,      -12 ] // SE
+    [  89,      1,       8,    24,      -3,      -12 ] // S
+    [  98,      1,      22,    20,     -14,      -12 ] // SW
+    [ 121,      1,      32,    16,     -16,      -12 ] // W
+    [ 154,      1,      22,    20,      -6,      -12 ] // NW
+}

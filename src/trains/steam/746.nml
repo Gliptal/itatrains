@@ -2,8 +2,27 @@ spriteset(spriteset_steam_746, "gfx/steam/746_685_691.png") {
     tmpl_train_steam()
 }
 
+spriteset(spriteset_steam_746_tender, "gfx/steam/746_685_691.png") {
+    tmpl_train_tender()
+}
+
 spriteset(spriteset_steam_746_purchase, "gfx/steam/746_685_691.png") {
-    tmpl_train_steam_purchase(-52)
+    tmpl_train_steam_purchase()
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_746_length, position_in_vehid_chain % 2) {
+   0      : 6;
+   4;
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_746_position, position_in_vehid_chain % 2) {
+   0      : spriteset_steam_746;
+   1      : spriteset_steam_746_tender;
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_746_tender, extra_callback_info1) {
+   1      : return item_746;
+   return   CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
 item(FEAT_TRAINS, item_746, 1003) {
@@ -19,10 +38,10 @@ item(FEAT_TRAINS, item_746, 1003) {
         introduction_date            : date(1922, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
         vehicle_life                 : 30;
-        reliability_decay            : ENGINE_DECAY_HIGH;
-        cost_factor                  : ENGINE_STEAM_COST_MEDIUM;
+        reliability_decay            : ENGINE_DECAY_L;
+        cost_factor                  : ENGINE_STEAM_COST_M;
         running_cost_base            : RUNNING_COST_STEAM;
-        running_cost_factor          : ENGINE_STEAM_UPKEEP_MEDIUM;
+        running_cost_factor          : ENGINE_STEAM_UPKEEP_M;
         cargo_capacity               : 0;
         refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
         non_refittable_cargo_classes : bitmask();
@@ -34,6 +53,8 @@ item(FEAT_TRAINS, item_746, 1003) {
     graphics {
         additional_text              : return string(STR_TRAIN_STEAM_746_DESC);
         purchase                     : spriteset_steam_746_purchase;
-        default                      : spriteset_steam_746;
+        articulated_part             : switch_steam_746_tender;
+        length                       : switch_steam_746_length;
+        default                      : switch_steam_746_position;
     }
 }

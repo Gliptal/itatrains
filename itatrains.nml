@@ -104,78 +104,84 @@ if (param_maglev) {
     disable_item(FEAT_TRAINS, 91, 115);
 }
 
+train_width_32_px  = 1;
 traininfo_y_offset = 2;
 
 railtypetable {
     RAIL, ELRL, MONO, MGLV
 }
 
-template tmpl_carriage_low() {
+template tmpl_train_steam_purchase() {
     //left_x, upper_y, width, height, offset_x, offset_y
-    [   1,      1,       8,    24,     -12 / 4,  -48 / 4 ] // N
-    [  10,      1,      22,    20,     -60 / 4,  -48 / 4 ] // NE
-    [  33,      1,      32,    16,     -76 / 4,  -50 / 4 ] // E
-    [  66,      1,      22,    20,     -23 / 4,  -48 / 4 ] // SE
-    [  89,      1,       8,    24,     -12 / 4,  -48 / 4 ] // S
-    [  98,      1,      22,    20,     -56 / 4,  -48 / 4 ] // SW
-    [ 121,      1,      32,    16,     -64 / 4,  -48 / 4 ] // W
-    [ 154,      1,      22,    20,     -21 / 4,  -50 / 4 ] // NW
+    [   1,     51,      64,    12,     -36,       -8 ] // W
 }
 
-template tmpl_carriage_high() {
+template tmpl_carriage_purchase() {
     //left_x, upper_y, width, height, offset_x, offset_y
-    [   1,      1,       8,    24,     -12 / 4,  -48 / 4 ] // N
-    [  10,      1,      22,    20,     -60 / 4,  -48 / 4 ] // NE
-    [  33,      1,      32,    16,     -76 / 4,  -48 / 4 ] // E
-    [  66,      1,      22,    20,     -20 / 4,  -48 / 4 ] // SE
-    [  89,      1,       8,    24,     -12 / 4,  -48 / 4 ] // S
-    [  98,      1,      22,    20,     -56 / 4,  -48 / 4 ] // SW
-    [ 121,      1,      32,    16,     -64 / 4,  -48 / 4 ] // W
-    [ 154,      1,      22,    20,     -20 / 4,  -48 / 4 ] // NW
-}
-
-template tmpl_train_steam_purchase(x) {
-    //left_x, upper_y, width, height, offset_x, offset_y
-    [                                                    ] // N
-    [                                                    ] // NE
-    [                                                    ] // E
-    [                                                    ] // SE
-    [                                                    ] // S
-    [                                                    ] // SW
-    [ 121,      1,      32,    16,       x / 4,  -48 / 4 ] // W
-    [                                                    ] // NW
-}
-
-template tmpl_carriage_purchase(x) {
-    //left_x, upper_y, width, height, offset_x, offset_y
-    [                                                    ] // N
-    [                                                    ] // NE
-    [                                                    ] // E
-    [                                                    ] // SE
-    [                                                    ] // S
-    [                                                    ] // SW
-    [ 121,      1,      32,    16,       x / 4,  -48 / 4 ] // W
-    [                                                    ] // NW
+    [ 121,      1,      32,    16,     -16,      -12 ] // W
 }
 
 template tmpl_train_steam() {
     //left_x, upper_y, width, height, offset_x, offset_y
-    [ 1,      1,        8,    24,     -12 / 4,  -48 / 4] // N
-    [ 10,     1,       22,    20,     -74 / 4,  -44 / 4] // NE
-    [ 33,     1,       32,    16,     -96 / 4,  -48 / 4] // E
-    [ 66,     1,       22,    20,     -28 / 4,  -52 / 4] // SE
-    [ 89,     1,        8,    24,     -12 / 4,  -48 / 4] // S
-    [ 98,     1,       22,    20,     -48 / 4,  -52 / 4] // SW
-    [ 121,    1,       32,    16,     -58 / 4,  -51 / 4] // W
-    [ 154,    1,       22,    20,     -12 / 4,  -46 / 4] // NW
+    [   1,      1,       8,    24,      -3,      -12 ] // N
+    [  10,      1,      22,    20,     -14,      -12 ] // NE
+    [  33,      1,      32,    16,     -16,      -12 ] // E
+    [  66,      1,      22,    20,      -6,      -12 ] // SE
+    [  89,      1,       8,    24,      -3,      -12 ] // S
+    [  98,      1,      22,    20,     -14,      -12 ] // SW
+    [ 121,      1,      32,    16,     -16,      -12 ] // W
+    [ 154,      1,      22,    20,      -6,      -12 ] // NW
+}
+
+template tmpl_train_tender() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [   1,     26,       8,    24,      -3,      -12 ] // N
+    [  10,     26,      22,    20,     -14,      -12 ] // NE
+    [  33,     26,      32,    16,     -16,      -12 ] // E
+    [  66,     26,      22,    20,      -6,      -12 ] // SE
+    [  89,     26,       8,    24,      -3,      -12 ] // S
+    [  98,     26,      22,    20,     -14,      -12 ] // SW
+    [ 121,     26,      32,    16,     -16,      -12 ] // W
+    [ 154,     26,      22,    20,      -6,      -12 ] // NW
+}
+
+template tmpl_carriage() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [   1,      1,       8,    24,      -3,      -12 ] // N
+    [  10,      1,      22,    20,     -14,      -12 ] // NE
+    [  33,      1,      32,    16,     -16,      -12 ] // E
+    [  66,      1,      22,    20,      -6,      -12 ] // SE
+    [  89,      1,       8,    24,      -3,      -12 ] // S
+    [  98,      1,      22,    20,     -14,      -12 ] // SW
+    [ 121,      1,      32,    16,     -16,      -12 ] // W
+    [ 154,      1,      22,    20,      -6,      -12 ] // NW
 }
 
 spriteset(spriteset_steam_685, "gfx/steam/746_685_691.png") {
     tmpl_train_steam()
 }
 
+spriteset(spriteset_steam_685_tender, "gfx/steam/746_685_691.png") {
+    tmpl_train_tender()
+}
+
 spriteset(spriteset_steam_685_purchase, "gfx/steam/746_685_691.png") {
-    tmpl_train_steam_purchase(-52)
+    tmpl_train_steam_purchase()
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_685_length, position_in_vehid_chain % 2) {
+   0      : 6;
+   4;
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_685_position, position_in_vehid_chain % 2) {
+   0      : spriteset_steam_685;
+   1      : spriteset_steam_685_tender;
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_685_tender, extra_callback_info1) {
+   1      : return item_685;
+   return   CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
 item(FEAT_TRAINS, item_685, 1002) {
@@ -191,9 +197,9 @@ item(FEAT_TRAINS, item_685, 1002) {
         introduction_date            : date(1912, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
         vehicle_life                 : 30;
-        cost_factor                  : 16;
+        cost_factor                  : 50000*255/796874;
         running_cost_base            : RUNNING_COST_STEAM;
-        running_cost_factor          : 250;
+        running_cost_factor          : 8000*255/11156;
         cargo_capacity               : 0;
         refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
         non_refittable_cargo_classes : bitmask();
@@ -205,7 +211,9 @@ item(FEAT_TRAINS, item_685, 1002) {
     graphics {
         additional_text              : return string(STR_TRAIN_STEAM_685_DESC);
         purchase                     : spriteset_steam_685_purchase;
-        default                      : spriteset_steam_685;
+        articulated_part             : switch_steam_685_tender;
+        length                       : switch_steam_685_length;
+        default                      : switch_steam_685_position;
     }
 }
 
@@ -213,8 +221,27 @@ spriteset(spriteset_steam_691, "gfx/steam/746_685_691.png") {
     tmpl_train_steam()
 }
 
+spriteset(spriteset_steam_691_tender, "gfx/steam/746_685_691.png") {
+    tmpl_train_tender()
+}
+
 spriteset(spriteset_steam_691_purchase, "gfx/steam/746_685_691.png") {
-    tmpl_train_steam_purchase(-52)
+    tmpl_train_steam_purchase()
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_691_length, position_in_vehid_chain % 2) {
+   0      : 6;
+   4;
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_691_position, position_in_vehid_chain % 2) {
+   0      : spriteset_steam_691;
+   1      : spriteset_steam_691_tender;
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_691_tender, extra_callback_info1) {
+   1      : return item_691;
+   return   CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
 item(FEAT_TRAINS, item_691, 1004) {
@@ -230,13 +257,14 @@ item(FEAT_TRAINS, item_691, 1004) {
         introduction_date            : date(1930, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
         vehicle_life                 : 30;
-        cost_factor                  : 32;
+        cost_factor                  : 50000*255/796874;
         running_cost_base            : RUNNING_COST_STEAM;
-        running_cost_factor          : 250;
+        running_cost_factor          : 8000*255/11156;
         cargo_capacity               : 0;
         refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
         non_refittable_cargo_classes : bitmask();
         dual_headed                  : 0;
+        length                       : 6;
         sprite_id                    : SPRITE_ID_NEW_TRAIN;
         visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_STEAM, -2, DISABLE_WAGON_POWER);
         misc_flags                   : bitmask(TRAIN_FLAG_2CC);
@@ -244,7 +272,9 @@ item(FEAT_TRAINS, item_691, 1004) {
     graphics {
         additional_text              : return string(STR_TRAIN_STEAM_691_DESC);
         purchase                     : spriteset_steam_691_purchase;
-        default                      : spriteset_steam_691;
+        articulated_part             : switch_steam_691_tender;
+        length                       : switch_steam_691_length;
+        default                      : switch_steam_691_position;
     }
 }
 
@@ -252,8 +282,27 @@ spriteset(spriteset_steam_740, "gfx/steam/740.png") {
     tmpl_train_steam()
 }
 
+spriteset(spriteset_steam_740_tender, "gfx/steam/746_685_691.png") {
+    tmpl_train_tender()
+}
+
 spriteset(spriteset_steam_740_purchase, "gfx/steam/740.png") {
-    tmpl_train_steam_purchase(-58)
+    tmpl_train_steam_purchase()
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_740_length, position_in_vehid_chain % 2) {
+   0      : 6;
+   4;
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_740_position, position_in_vehid_chain % 2) {
+   0      : spriteset_steam_740;
+   1      : spriteset_steam_740_tender;
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_740_tender, extra_callback_info1) {
+   1      : return item_740;
+   return   CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
 item(FEAT_TRAINS, item_740, 1001) {
@@ -270,9 +319,9 @@ item(FEAT_TRAINS, item_740, 1001) {
         model_life                   : VEHICLE_NEVER_EXPIRES;
         vehicle_life                 : 30;
         reliability_decay            : 10;
-        cost_factor                  : 8;
+        cost_factor                  : 25000*255/796874;
         running_cost_base            : RUNNING_COST_STEAM;
-        running_cost_factor          : 50;
+        running_cost_factor          : 2000*255/11156;
         cargo_capacity               : 0;
         refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
         non_refittable_cargo_classes : bitmask();
@@ -284,7 +333,9 @@ item(FEAT_TRAINS, item_740, 1001) {
     graphics {
         additional_text              : return string(STR_TRAIN_STEAM_740_DESC);
         purchase                     : spriteset_steam_740_purchase;
-        default                      : spriteset_steam_740;
+        articulated_part             : switch_steam_740_tender;
+        length                       : switch_steam_740_length;
+        default                      : switch_steam_740_position;
     }
 }
 
@@ -292,8 +343,27 @@ spriteset(spriteset_steam_746, "gfx/steam/746_685_691.png") {
     tmpl_train_steam()
 }
 
+spriteset(spriteset_steam_746_tender, "gfx/steam/746_685_691.png") {
+    tmpl_train_tender()
+}
+
 spriteset(spriteset_steam_746_purchase, "gfx/steam/746_685_691.png") {
-    tmpl_train_steam_purchase(-52)
+    tmpl_train_steam_purchase()
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_746_length, position_in_vehid_chain % 2) {
+   0      : 6;
+   4;
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_746_position, position_in_vehid_chain % 2) {
+   0      : spriteset_steam_746;
+   1      : spriteset_steam_746_tender;
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_746_tender, extra_callback_info1) {
+   1      : return item_746;
+   return   CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
 item(FEAT_TRAINS, item_746, 1003) {
@@ -310,9 +380,9 @@ item(FEAT_TRAINS, item_746, 1003) {
         model_life                   : VEHICLE_NEVER_EXPIRES;
         vehicle_life                 : 30;
         reliability_decay            : 30;
-        cost_factor                  : 24;
+        cost_factor                  : 75000*255/796874;
         running_cost_base            : RUNNING_COST_STEAM;
-        running_cost_factor          : 100;
+        running_cost_factor          : 4000*255/11156;
         cargo_capacity               : 0;
         refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
         non_refittable_cargo_classes : bitmask();
@@ -324,16 +394,18 @@ item(FEAT_TRAINS, item_746, 1003) {
     graphics {
         additional_text              : return string(STR_TRAIN_STEAM_746_DESC);
         purchase                     : spriteset_steam_746_purchase;
-        default                      : spriteset_steam_746;
+        articulated_part             : switch_steam_746_tender;
+        length                       : switch_steam_746_length;
+        default                      : switch_steam_746_position;
     }
 }
 
 spriteset(spriteset_carriage_Tipo1910, "gfx/carriages/Tipo1910.png") {
-    tmpl_carriage_low()
+    tmpl_carriage()
 }
 
 spriteset(spriteset_carriage_Tipo1910_purchase, "gfx/carriages/Tipo1910.png") {
-    tmpl_carriage_purchase(-58)
+    tmpl_carriage_purchase()
 }
 
 switch (FEAT_TRAINS, SELF, switch_Tipo1910_graphics, getbits(extra_callback_info1, 0, 8)) {
@@ -344,7 +416,7 @@ switch (FEAT_TRAINS, SELF, switch_Tipo1910_graphics, getbits(extra_callback_info
 item(FEAT_TRAINS, item_Tipo1910, 10001) {
     property {
         track_type                   : RAIL;
-        engine_class                 : ENGINE_CLASS_STEAM;
+        engine_class                 : ENGINE_CLASS_DIESEL;
         name                         : string(STR_CARRIAGE_TIPO1910_NAME);
         speed                        : 90 km/h;
         power                        : 0 hp;
@@ -355,13 +427,14 @@ item(FEAT_TRAINS, item_Tipo1910, 10001) {
         introduction_date            : date(1910, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
         reliability_decay            : 0;
-        cost_factor                  : 100;
-        running_cost_base            : RUNNING_COST_NONE;
+        cost_factor                  : 500*255/3984;
+        running_cost_base            : RUNNING_COST_DIESEL;
+        running_cost_factor          : 255;
         cargo_capacity               : 59;
         refittable_cargo_classes     : bitmask(CC_PASSENGERS);
         non_refittable_cargo_classes : bitmask();
         dual_headed                  : 0;
-        length                       : 8;
+        length                       : 7;
         sprite_id                    : SPRITE_ID_NEW_TRAIN;
         visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
         misc_flags                   : bitmask(TRAIN_FLAG_2CC);
@@ -374,11 +447,11 @@ item(FEAT_TRAINS, item_Tipo1910, 10001) {
 }
 
 spriteset(spriteset_carriage_Tipo1928R, "gfx/carriages/Tipo1928R.png") {
-    tmpl_carriage_low()
+    tmpl_carriage()
 }
 
 spriteset(spriteset_carriage_Tipo1928R_purchase, "gfx/carriages/Tipo1928R.png") {
-    tmpl_carriage_purchase(-58)
+    tmpl_carriage_purchase()
 }
 
 switch (FEAT_TRAINS, SELF, switch_Tipo1928R_graphics, getbits(extra_callback_info1, 0, 8)) {
@@ -389,7 +462,7 @@ switch (FEAT_TRAINS, SELF, switch_Tipo1928R_graphics, getbits(extra_callback_inf
 item(FEAT_TRAINS, item_Tipo1928R, 10002) {
     property {
         track_type                   : RAIL;
-        engine_class                 : ENGINE_CLASS_STEAM;
+        engine_class                 : ENGINE_CLASS_DIESEL;
         name                         : string(STR_CARRIAGE_TIPO1928R_NAME);
         speed                        : 120 km/h;
         power                        : 0 hp;
@@ -400,13 +473,14 @@ item(FEAT_TRAINS, item_Tipo1928R, 10002) {
         introduction_date            : date(1931, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
         reliability_decay            : 0;
-        cost_factor                  : 150;
-        running_cost_base            : RUNNING_COST_NONE;
+        cost_factor                  : 1000*255/3984;
+        running_cost_base            : RUNNING_COST_DIESEL;
+        running_cost_factor          : 200*255/10358;
         cargo_capacity               : 78;
         refittable_cargo_classes     : bitmask(CC_PASSENGERS);
         non_refittable_cargo_classes : bitmask();
         dual_headed                  : 0;
-        length                       : 8;
+        length                       : 7;
         sprite_id                    : SPRITE_ID_NEW_TRAIN;
         visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
         misc_flags                   : bitmask(TRAIN_FLAG_2CC);
@@ -419,11 +493,11 @@ item(FEAT_TRAINS, item_Tipo1928R, 10002) {
 }
 
 spriteset(spriteset_carriage_Tipo1937, "gfx/carriages/Tipo1937.png") {
-    tmpl_carriage_high()
+    tmpl_carriage()
 }
 
 spriteset(spriteset_carriage_Tipo1937_purchase, "gfx/carriages/Tipo1937.png") {
-    tmpl_carriage_purchase(-58)
+    tmpl_carriage_purchase()
 }
 
 switch (FEAT_TRAINS, SELF, switch_Tipo1937_graphics, getbits(extra_callback_info1, 0, 8)) {
@@ -434,7 +508,7 @@ switch (FEAT_TRAINS, SELF, switch_Tipo1937_graphics, getbits(extra_callback_info
 item(FEAT_TRAINS, item_Tipo1937, 10003) {
     property {
         track_type                   : RAIL;
-        engine_class                 : ENGINE_CLASS_STEAM;
+        engine_class                 : ENGINE_CLASS_DIESEL;
         name                         : string(STR_CARRIAGE_TIPO1937_NAME);
         speed                        : 150 km/h;
         power                        : 0 hp;
@@ -445,13 +519,14 @@ item(FEAT_TRAINS, item_Tipo1937, 10003) {
         introduction_date            : date(1938, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
         reliability_decay            : 0;
-        cost_factor                  : 150;
-        running_cost_base            : RUNNING_COST_NONE;
+        cost_factor                  : 1500*255/3984;
+        running_cost_base            : RUNNING_COST_DIESEL;
+        running_cost_factor          : 400*255/10358;
         cargo_capacity               : 40;
         refittable_cargo_classes     : bitmask(CC_PASSENGERS);
         non_refittable_cargo_classes : bitmask();
         dual_headed                  : 0;
-        length                       : 8;
+        length                       : 7;
         sprite_id                    : SPRITE_ID_NEW_TRAIN;
         visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
         misc_flags                   : bitmask(TRAIN_FLAG_2CC);

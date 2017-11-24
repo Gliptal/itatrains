@@ -23,6 +23,7 @@ if (param_maglev) {
     disable_item(FEAT_TRAINS, 91, 115);
 }
 
+train_width_32_px  = 1;
 traininfo_y_offset = 2;
 
 railtypetable {

@@ -2,8 +2,27 @@ spriteset(spriteset_steam_685, "gfx/steam/746_685_691.png") {
     tmpl_train_steam()
 }
 
+spriteset(spriteset_steam_685_tender, "gfx/steam/746_685_691.png") {
+    tmpl_train_tender()
+}
+
 spriteset(spriteset_steam_685_purchase, "gfx/steam/746_685_691.png") {
-    tmpl_train_steam_purchase(-52)
+    tmpl_train_steam_purchase()
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_685_length, position_in_vehid_chain % 2) {
+   0      : 6;
+   4;
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_685_position, position_in_vehid_chain % 2) {
+   0      : spriteset_steam_685;
+   1      : spriteset_steam_685_tender;
+}
+
+switch(FEAT_TRAINS, SELF, switch_steam_685_tender, extra_callback_info1) {
+   1      : return item_685;
+   return   CB_RESULT_NO_MORE_ARTICULATED_PARTS;
 }
 
 item(FEAT_TRAINS, item_685, 1002) {
@@ -19,9 +38,9 @@ item(FEAT_TRAINS, item_685, 1002) {
         introduction_date            : date(1912, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
         vehicle_life                 : 30;
-        cost_factor                  : ENGINE_STEAM_COST_LOW;
+        cost_factor                  : ENGINE_STEAM_COST_S;
         running_cost_base            : RUNNING_COST_STEAM;
-        running_cost_factor          : ENGINE_STEAM_UPKEEP_HIGH;
+        running_cost_factor          : ENGINE_STEAM_UPKEEP_L;
         cargo_capacity               : 0;
         refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
         non_refittable_cargo_classes : bitmask();
@@ -33,6 +52,8 @@ item(FEAT_TRAINS, item_685, 1002) {
     graphics {
         additional_text              : return string(STR_TRAIN_STEAM_685_DESC);
         purchase                     : spriteset_steam_685_purchase;
-        default                      : spriteset_steam_685;
+        articulated_part             : switch_steam_685_tender;
+        length                       : switch_steam_685_length;
+        default                      : switch_steam_685_position;
     }
 }

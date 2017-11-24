@@ -1,7 +1,7 @@
 @ECHO OFF
 
 
-CALL make.bat
+CALL make.bat %1
 
 IF ERRORLEVEL 1 (
     GOTO End

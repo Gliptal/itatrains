@@ -1,9 +1,9 @@
 spriteset(spriteset_carriage_Tipo1937, "gfx/carriages/Tipo1937.png") {
-    tmpl_carriage_high()
+    tmpl_carriage()
 }
 
 spriteset(spriteset_carriage_Tipo1937_purchase, "gfx/carriages/Tipo1937.png") {
-    tmpl_carriage_purchase(-58)
+    tmpl_carriage_purchase()
 }
 
 switch (FEAT_TRAINS, SELF, switch_Tipo1937_graphics, getbits(extra_callback_info1, 0, 8)) {
@@ -14,7 +14,7 @@ switch (FEAT_TRAINS, SELF, switch_Tipo1937_graphics, getbits(extra_callback_info
 item(FEAT_TRAINS, item_Tipo1937, 10003) {
     property {
         track_type                   : RAIL;
-        engine_class                 : ENGINE_CLASS_STEAM;
+        engine_class                 : ENGINE_CLASS_DIESEL;
         name                         : string(STR_CARRIAGE_TIPO1937_NAME);
         speed                        : 150 km/h;
         power                        : 0 hp;
@@ -25,13 +25,14 @@ item(FEAT_TRAINS, item_Tipo1937, 10003) {
         introduction_date            : date(1938, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
         reliability_decay            : 0;
-        cost_factor                  : CARRIAGE_COST_MEDIUM;
-        running_cost_base            : RUNNING_COST_NONE;
+        cost_factor                  : CARRIAGE_COST_M;
+        running_cost_base            : RUNNING_COST_DIESEL;
+        running_cost_factor          : CARRIAGE_UPKEEP_M;
         cargo_capacity               : 40;
         refittable_cargo_classes     : bitmask(CC_PASSENGERS);
         non_refittable_cargo_classes : bitmask();
         dual_headed                  : 0;
-        length                       : 8;
+        length                       : 7;
         sprite_id                    : SPRITE_ID_NEW_TRAIN;
         visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
         misc_flags                   : bitmask(TRAIN_FLAG_2CC);

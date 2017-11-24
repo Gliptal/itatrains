@@ -1,9 +1,9 @@
 spriteset(spriteset_carriage_Tipo1928R, "gfx/carriages/Tipo1928R.png") {
-    tmpl_carriage_low()
+    tmpl_carriage()
 }
 
 spriteset(spriteset_carriage_Tipo1928R_purchase, "gfx/carriages/Tipo1928R.png") {
-    tmpl_carriage_purchase(-58)
+    tmpl_carriage_purchase()
 }
 
 switch (FEAT_TRAINS, SELF, switch_Tipo1928R_graphics, getbits(extra_callback_info1, 0, 8)) {
@@ -14,7 +14,7 @@ switch (FEAT_TRAINS, SELF, switch_Tipo1928R_graphics, getbits(extra_callback_inf
 item(FEAT_TRAINS, item_Tipo1928R, 10002) {
     property {
         track_type                   : RAIL;
-        engine_class                 : ENGINE_CLASS_STEAM;
+        engine_class                 : ENGINE_CLASS_DIESEL;
         name                         : string(STR_CARRIAGE_TIPO1928R_NAME);
         speed                        : 120 km/h;
         power                        : 0 hp;
@@ -25,13 +25,14 @@ item(FEAT_TRAINS, item_Tipo1928R, 10002) {
         introduction_date            : date(1931, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
         reliability_decay            : 0;
-        cost_factor                  : CARRIAGE_COST_MEDIUM;
-        running_cost_base            : RUNNING_COST_NONE;
+        cost_factor                  : CARRIAGE_COST_S;
+        running_cost_base            : RUNNING_COST_DIESEL;
+        running_cost_factor          : CARRIAGE_UPKEEP_S;
         cargo_capacity               : 78;
         refittable_cargo_classes     : bitmask(CC_PASSENGERS);
         non_refittable_cargo_classes : bitmask();
         dual_headed                  : 0;
-        length                       : 8;
+        length                       : 7;
         sprite_id                    : SPRITE_ID_NEW_TRAIN;
         visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
         misc_flags                   : bitmask(TRAIN_FLAG_2CC);

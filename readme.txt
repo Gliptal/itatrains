@@ -1,14 +1,29 @@
-The following items are added:
+AVAILABLE ENGINES:
 
-- 740 (steam)
-- 685 (steam)
-- 746 (steam)
-- 691 (steam)
+  model    type    original gfx   modified gfx
+ -------- ------- -------------- --------------
+  740      steam   2CC            Gliptal
+  685      steam   2CC            Gliptal
+  746      steam   2CC            Gliptal
+  691      steam   2CC            Gliptal
 
-- Tipo 1910 (carriage)
-- Tipo 1928R (carriage)
-- Tipo 1937 (carriage)
+AVAILABLE CARRIAGES:
 
-The following items are modified:
+  model        original gfx   modified gfx
+ ------------ -------------- --------------
+  Tipo 1910    2CC            Gliptal
+  Tipo 1928R   2CC            Gliptal
+  Tipo1937     2CC            Gliptal
 
-- MPS Regal Bus
+MODIFIED VEHICLES:
+
+  model           renamed to       original gfx   modified gfx
+ --------------- ---------------- -------------- --------------
+  MPS Regal Bus   Lancia Omicron   OpenGFX        Gliptal
+
+SUGGESTED LIVERIES:
+
+  class    type              primary   secondary
+ -------- ----------------- --------- -----------
+  trains   steam engine      grey      grey
+  trains   passenger coach   brown     grey

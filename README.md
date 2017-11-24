@@ -1,3 +1,13 @@
+### 0.5.0 | *2017-11-24*
+
+- **added:**
+  - tenders
+- **changed:**
+  - build process
+  - sprite templates
+  - multiple sprites
+  - general balance
+
 ### 0.4.0 | *2017-11-22*
 
 - **changed:**

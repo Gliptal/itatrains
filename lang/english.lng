@@ -24,14 +24,14 @@ STR_PARAM_HELIS_NAME    :Rework helicopters
 STR_PARAM_HELIS_DESC    :Different costs and cargo capacities.
 
 # trains (steam)
-STR_TRAIN_STEAM_740_NAME      :740
-STR_TRAIN_STEAM_740_DESC      :Decay:{GOLD} Low{BLACK}{}{}Usage:{GOLD} Passengers/Freight{BLACK}{}Line:{GOLD} Local{BLACK}{}Terrain:{GOLD} Hilly\\Mountainous{BLACK}
-STR_TRAIN_STEAM_685_NAME      :685
-STR_TRAIN_STEAM_685_DESC      :Decay:{GOLD} Normal{BLACK}{}{}Usage:{GOLD} Passengers{BLACK}{}Line:{GOLD} Express{BLACK}{}Terrain:{GOLD} Flat{BLACK}
-STR_TRAIN_STEAM_746_NAME      :746
-STR_TRAIN_STEAM_746_DESC      :Decay:{GOLD} High{BLACK}{}{}Usage:{GOLD} Passengers{BLACK}{}Line:{GOLD} Local{BLACK}{}Terrain:{GOLD} Flat{BLACK}
-STR_TRAIN_STEAM_691_NAME      :691
-STR_TRAIN_STEAM_691_DESC      :Decay:{GOLD} Normal{BLACK}{}{}Usage:{GOLD} Passengers{BLACK}{}Line:{GOLD} Express{BLACK}{}Terrain:{GOLD} Flat{BLACK}
+STR_TRAIN_STEAM_740_NAME :740
+STR_TRAIN_STEAM_740_DESC :Decay:{GOLD} Low{BLACK}{}{}Usage:{GOLD} Passengers/Freight{BLACK}{}Line:{GOLD} Local{BLACK}{}Terrain:{GOLD} Hilly\\Mountainous{BLACK}
+STR_TRAIN_STEAM_685_NAME :685
+STR_TRAIN_STEAM_685_DESC :Decay:{GOLD} Normal{BLACK}{}{}Usage:{GOLD} Passengers{BLACK}{}Line:{GOLD} Express{BLACK}{}Terrain:{GOLD} Flat{BLACK}
+STR_TRAIN_STEAM_746_NAME :746
+STR_TRAIN_STEAM_746_DESC :Decay:{GOLD} High{BLACK}{}{}Usage:{GOLD} Passengers{BLACK}{}Line:{GOLD} Local{BLACK}{}Terrain:{GOLD} Flat{BLACK}
+STR_TRAIN_STEAM_691_NAME :691
+STR_TRAIN_STEAM_691_DESC :Decay:{GOLD} Normal{BLACK}{}{}Usage:{GOLD} Passengers{BLACK}{}Line:{GOLD} Express{BLACK}{}Terrain:{GOLD} Flat{BLACK}
 
 # carriages
 STR_CARRIAGE_TIPO1910_NAME  :Tipo 1910
