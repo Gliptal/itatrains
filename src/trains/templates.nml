@@ -3,9 +3,9 @@ template tmpl_train_steam_purchase() {
     [   1,     51,      64,    12,     -36,       -8 ] // W
 }
 
-template tmpl_carriage_purchase() {
+template tmpl_carriage_purchase(x) {
     //left_x, upper_y, width, height, offset_x, offset_y
-    [ 121,      1,      32,    16,     -16,      -12 ] // W
+    [ 121,      1,      32,    16,    x-16,      -12 ] // W
 }
 
 template tmpl_train_steam() {

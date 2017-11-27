@@ -1,3 +1,14 @@
+### 0.6.0 | *2017-11-24*
+
+- **added:**
+  - carriage: TEE
+  - carriage: Eurofima
+- **changed:**
+  - build process
+  - carriage: Tipo 1910
+  - carriage: Tipo 1937
+  - vehicle: Lancia Omicron
+
 ### 0.5.0 | *2017-11-24*
 
 - **added:**
@@ -10,14 +21,14 @@
 
 ### 0.4.0 | *2017-11-22*
 
-- **changed:**
-  - build process
-  - sprite templates
-  - multiple sprites
 - **added:**
   - readme.txt
   - carriage: Tipo 1928R
   - carriage: Tipo 1937
+- **changed:**
+  - build process
+  - sprite templates
+  - multiple sprites
 
 ### 0.3.0 | *2017-11-20*
 

@@ -1,0 +1,45 @@
+spriteset(spriteset_carriage_tee, "gfx/carriages/tee.png") {
+    tmpl_carriage()
+}
+
+spriteset(spriteset_carriage_tee_purchase, "gfx/carriages/tee.png") {
+    tmpl_carriage_purchase(-2)
+}
+
+switch (FEAT_TRAINS, SELF, switch_tee_graphics, getbits(extra_callback_info1, 0, 8)) {
+    0x11: spriteset_carriage_tee_purchase;
+    return spriteset_carriage_tee;
+}
+
+item(FEAT_TRAINS, item_tee, 10007) {
+    property {
+        track_type                   : RAIL;
+        engine_class                 : ENGINE_CLASS_DIESEL;
+        name                         : string(STR_CARRIAGE_TEE_NAME);
+        speed                        : 200 km/h;
+        power                        : 0 hp;
+        weight                       : 50 ton;
+        tractive_effort_coefficient  : 0.3;
+        air_drag_coefficient         : CARRIAGE_DRAG;
+        climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date            : date(1971, 1, 1);
+        model_life                   : VEHICLE_NEVER_EXPIRES;
+        reliability_decay            : 0;
+        cost_factor                  : CARRIAGE_COST_XL;
+        running_cost_base            : RUNNING_COST_DIESEL;
+        running_cost_factor          : CARRIAGE_UPKEEP_XL;
+        cargo_capacity               : 48;
+        refittable_cargo_classes     : bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes : bitmask();
+        dual_headed                  : 0;
+        length                       : 8;
+        sprite_id                    : SPRITE_ID_NEW_TRAIN;
+        visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+        misc_flags                   : bitmask(TRAIN_FLAG_2CC);
+    }
+    graphics {
+        additional_text              : return string(STR_CARRIAGE_TEE_DESC);
+        purchase                     : spriteset_carriage_tee_purchase;
+        default                      : switch_tee_graphics;
+    }
+}

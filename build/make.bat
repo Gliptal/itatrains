@@ -14,10 +14,12 @@ DEL %NML_NAME%.nml >nul 2>nul
 ECHO %TIME:~0,8% [ TASK ] generating new .nml
 
 TYPE nul > %NML_NAME%.nml
-(FOR %%f IN (%FILES%) DO (
-    TYPE %%f
-    ECHO/
-)) >> %NML_NAME%.nml
+(FOR /F "tokens=1" %%A IN (build\%FILES%.bat) DO (
+    FOR %%B IN (%%A) DO (
+        TYPE %%B
+        ECHO/
+    )
+)) >> %NML_NAME%.nml 2>nul
 
 ECHO %TIME:~0,8% [ TASK ] replacing constants
 

@@ -1,17 +1,17 @@
-spriteset(spriteset_carriage_Tipo1910, "gfx/carriages/Tipo1910.png") {
+spriteset(spriteset_carriage_tipo1910, "gfx/carriages/tipo1910.png") {
     tmpl_carriage()
 }
 
-spriteset(spriteset_carriage_Tipo1910_purchase, "gfx/carriages/Tipo1910.png") {
-    tmpl_carriage_purchase()
+spriteset(spriteset_carriage_tipo1910_purchase, "gfx/carriages/tipo1910.png") {
+    tmpl_carriage_purchase(0)
 }
 
-switch (FEAT_TRAINS, SELF, switch_Tipo1910_graphics, getbits(extra_callback_info1, 0, 8)) {
-    0x11: spriteset_carriage_Tipo1910_purchase;
-    return spriteset_carriage_Tipo1910;
+switch (FEAT_TRAINS, SELF, switch_tipo1910_graphics, getbits(extra_callback_info1, 0, 8)) {
+    0x11: spriteset_carriage_tipo1910_purchase;
+    return spriteset_carriage_tipo1910;
 }
 
-item(FEAT_TRAINS, item_Tipo1910, 10001) {
+item(FEAT_TRAINS, item_tipo1910, 10001) {
     property {
         track_type                   : RAIL;
         engine_class                 : ENGINE_CLASS_DIESEL;
@@ -39,7 +39,7 @@ item(FEAT_TRAINS, item_Tipo1910, 10001) {
     }
     graphics {
         additional_text              : return string(STR_CARRIAGE_TIPO1910_DESC);
-        purchase                     : spriteset_carriage_Tipo1910_purchase;
-        default                      : switch_Tipo1910_graphics;
+        purchase                     : spriteset_carriage_tipo1910_purchase;
+        default                      : switch_tipo1910_graphics;
     }
 }

@@ -1,45 +1,45 @@
-spriteset(spriteset_carriage_tipo1937, "gfx/carriages/tipo1937.png") {
+spriteset(spriteset_carriage_eurofima, "gfx/carriages/eurofima.png") {
     tmpl_carriage()
 }
 
-spriteset(spriteset_carriage_tipo1937_purchase, "gfx/carriages/tipo1937.png") {
-    tmpl_carriage_purchase(0)
+spriteset(spriteset_carriage_eurofima_purchase, "gfx/carriages/eurofima.png") {
+    tmpl_carriage_purchase(-2)
 }
 
-switch (FEAT_TRAINS, SELF, switch_tipo1937_graphics, getbits(extra_callback_info1, 0, 8)) {
-    0x11: spriteset_carriage_tipo1937_purchase;
-    return spriteset_carriage_tipo1937;
+switch (FEAT_TRAINS, SELF, switch_eurofima_graphics, getbits(extra_callback_info1, 0, 8)) {
+    0x11: spriteset_carriage_eurofima_purchase;
+    return spriteset_carriage_eurofima;
 }
 
-item(FEAT_TRAINS, item_tipo1937, 10003) {
+item(FEAT_TRAINS, item_eurofima, 10008) {
     property {
         track_type                   : RAIL;
         engine_class                 : ENGINE_CLASS_DIESEL;
-        name                         : string(STR_CARRIAGE_TIPO1937_NAME);
-        speed                        : 150 km/h;
+        name                         : string(STR_CARRIAGE_EUROFIMA_NAME);
+        speed                        : 200 km/h;
         power                        : 0 hp;
         weight                       : 42 ton;
         tractive_effort_coefficient  : 0.3;
         air_drag_coefficient         : CARRIAGE_DRAG;
         climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        introduction_date            : date(1938, 1, 1);
+        introduction_date            : date(1977, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
         reliability_decay            : 0;
-        cost_factor                  : CARRIAGE_COST_M;
+        cost_factor                  : CARRIAGE_COST_XL;
         running_cost_base            : RUNNING_COST_DIESEL;
-        running_cost_factor          : CARRIAGE_UPKEEP_M;
-        cargo_capacity               : 40;
+        running_cost_factor          : CARRIAGE_UPKEEP_XL;
+        cargo_capacity               : 54;
         refittable_cargo_classes     : bitmask(CC_PASSENGERS);
         non_refittable_cargo_classes : bitmask();
         dual_headed                  : 0;
-        length                       : 7;
+        length                       : 8;
         sprite_id                    : SPRITE_ID_NEW_TRAIN;
         visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
         misc_flags                   : bitmask(TRAIN_FLAG_2CC);
     }
     graphics {
-        additional_text              : return string(STR_CARRIAGE_TIPO1937_DESC);
-        purchase                     : spriteset_carriage_tipo1937_purchase;
-        default                      : switch_tipo1937_graphics;
+        additional_text              : return string(STR_CARRIAGE_EUROFIMA_DESC);
+        purchase                     : spriteset_carriage_eurofima_purchase;
+        default                      : switch_eurofima_graphics;
     }
 }

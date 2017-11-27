@@ -2,7 +2,7 @@
 
 # meta
 STR_GRF_NAME :{TITLE} {VERSION}
-STR_GRF_DESC :Programming:{SILVER} Mattia Affabris {COPYRIGHT} (2017){BLACK}{}Graphics:{SILVER}Modified from 2CC Trains {COPYRIGHT} (2017){BLACK}{}License:{SILVER} Creative Commons BY NC SA 4.0{BLACK}{}{}{}{GOLD}{TITLE}{BLACK} provides a trainset based on engines and carriages from Italy, spanning the 1910s to the 2010s. It also optionally enhances vehicles, trams, ships, planes, and helicopters.
+STR_GRF_DESC :Programming:{SILVER} Mattia Affabris {COPYRIGHT} (2017){BLACK}{}Graphics:{SILVER}Modified from 2CC Trains {COPYRIGHT} (2017){BLACK}{}License:{SILVER} Creative Commons BY NC SA 4.0{BLACK}{}{}{}{GOLD}{TITLE}{BLACK} provides a trainset based on engines and carriages from Italy, spanning the 1910s to the 2010s with a focus on passenger service. It also optionally enhances vehicles, trams, ships, planes, and helicopters.
 STR_GRF_URL  :{URL}
 
 # parameters
@@ -40,7 +40,11 @@ STR_CARRIAGE_TIPO1928R_NAME :Tipo 1928R
 STR_CARRIAGE_TIPO1928R_DESC :Designed:{GOLD} 1931{BLACK}{}{}Line:{GOLD} Local{BLACK}
 STR_CARRIAGE_TIPO1937_NAME  :Tipo 1937
 STR_CARRIAGE_TIPO1937_DESC  :Designed:{GOLD} 1938{BLACK}{}{}Line:{GOLD} Express{BLACK}
+STR_CARRIAGE_TEE_NAME       :TEE
+STR_CARRIAGE_TEE_DESC       :Designed:{GOLD} 1971{BLACK}{}{}Line:{GOLD} International{BLACK}
+STR_CARRIAGE_EUROFIMA_NAME  :Eurofima
+STR_CARRIAGE_EUROFIMA_DESC  :Designed:{GOLD} 1977{BLACK}{}{}Line:{GOLD} International{BLACK}
 
 # road vehicles
 STR_ROAD_MPSREGALBUS_NAME :Lancia Omicron
-STR_ROAD_MPSREGALBUS_DESC :Line:{GOLD} Urban{BLACK}
+STR_ROAD_MPSREGALBUS_DESC :{}Line:{GOLD} Urban{BLACK}

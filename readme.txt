@@ -14,6 +14,8 @@ AVAILABLE CARRIAGES:
   Tipo 1910    2CC            Gliptal
   Tipo 1928R   2CC            Gliptal
   Tipo1937     2CC            Gliptal
+  TEE          ToE            Emperor Jake
+  Eurofima     ToE            Emperor Jake
 
 MODIFIED VEHICLES:
 
@@ -23,7 +25,7 @@ MODIFIED VEHICLES:
 
 SUGGESTED LIVERIES:
 
-  class    type              primary   secondary
- -------- ----------------- --------- -----------
-  trains   steam engine      grey      grey
-  trains   passenger coach   brown     grey
+  class      type              primary   secondary
+ ---------- ----------------- --------- -----------
+  trains     steam engine      grey      grey
+  vehicles   bus               orange    dark blue

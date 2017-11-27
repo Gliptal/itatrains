@@ -83,7 +83,7 @@ if (param_remove) {
     // train engines
     disable_item(FEAT_TRAINS, 0, 26);
     // train carriages
-    disable_item(FEAT_TRAINS, 27, 53);
+    disable_item(FEAT_TRAINS, 27, 27);
     // monorail engines
     disable_item(FEAT_TRAINS, 54, 56);
     // monorail carriages
@@ -116,9 +116,9 @@ template tmpl_train_steam_purchase() {
     [   1,     51,      64,    12,     -36,       -8 ] // W
 }
 
-template tmpl_carriage_purchase() {
+template tmpl_carriage_purchase(x) {
     //left_x, upper_y, width, height, offset_x, offset_y
-    [ 121,      1,      32,    16,     -16,      -12 ] // W
+    [ 121,      1,      32,    16,    x-16,      -12 ] // W
 }
 
 template tmpl_train_steam() {
@@ -196,7 +196,7 @@ item(FEAT_TRAINS, item_685, 1002) {
         climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
         introduction_date            : date(1912, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
-        vehicle_life                 : 30;
+        vehicle_life                 : 64;
         cost_factor                  : 50000*255/796874;
         running_cost_base            : RUNNING_COST_STEAM;
         running_cost_factor          : 8000*255/11156;
@@ -254,9 +254,9 @@ item(FEAT_TRAINS, item_691, 1004) {
         weight                       : 95 ton;
         tractive_effort_coefficient  : 0.3;
         climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        introduction_date            : date(1930, 1, 1);
+        introduction_date            : date(1931, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
-        vehicle_life                 : 30;
+        vehicle_life                 : 29;
         cost_factor                  : 50000*255/796874;
         running_cost_base            : RUNNING_COST_STEAM;
         running_cost_factor          : 8000*255/11156;
@@ -313,11 +313,11 @@ item(FEAT_TRAINS, item_740, 1001) {
         speed                        : 65 km/h;
         power                        : 980 hp;
         weight                       : 66 ton;
-        tractive_effort_coefficient  : 0.3;
+        tractive_effort_coefficient  : 0.4;
         climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
-        introduction_date            : date(1910, 1, 1);
+        introduction_date            : date(1911, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
-        vehicle_life                 : 30;
+        vehicle_life                 : 70;
         reliability_decay            : 10;
         cost_factor                  : 25000*255/796874;
         running_cost_base            : RUNNING_COST_STEAM;
@@ -378,7 +378,7 @@ item(FEAT_TRAINS, item_746, 1003) {
         climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
         introduction_date            : date(1922, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
-        vehicle_life                 : 30;
+        vehicle_life                 : 44;
         reliability_decay            : 30;
         cost_factor                  : 75000*255/796874;
         running_cost_base            : RUNNING_COST_STEAM;
@@ -400,20 +400,112 @@ item(FEAT_TRAINS, item_746, 1003) {
     }
 }
 
-spriteset(spriteset_carriage_Tipo1910, "gfx/carriages/Tipo1910.png") {
+spriteset(spriteset_carriage_eurofima, "gfx/carriages/eurofima.png") {
     tmpl_carriage()
 }
 
-spriteset(spriteset_carriage_Tipo1910_purchase, "gfx/carriages/Tipo1910.png") {
-    tmpl_carriage_purchase()
+spriteset(spriteset_carriage_eurofima_purchase, "gfx/carriages/eurofima.png") {
+    tmpl_carriage_purchase(-2)
 }
 
-switch (FEAT_TRAINS, SELF, switch_Tipo1910_graphics, getbits(extra_callback_info1, 0, 8)) {
-    0x11: spriteset_carriage_Tipo1910_purchase;
-    return spriteset_carriage_Tipo1910;
+switch (FEAT_TRAINS, SELF, switch_eurofima_graphics, getbits(extra_callback_info1, 0, 8)) {
+    0x11: spriteset_carriage_eurofima_purchase;
+    return spriteset_carriage_eurofima;
 }
 
-item(FEAT_TRAINS, item_Tipo1910, 10001) {
+item(FEAT_TRAINS, item_eurofima, 10008) {
+    property {
+        track_type                   : RAIL;
+        engine_class                 : ENGINE_CLASS_DIESEL;
+        name                         : string(STR_CARRIAGE_EUROFIMA_NAME);
+        speed                        : 200 km/h;
+        power                        : 0 hp;
+        weight                       : 42 ton;
+        tractive_effort_coefficient  : 0.3;
+        air_drag_coefficient         : 0;
+        climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date            : date(1977, 1, 1);
+        model_life                   : VEHICLE_NEVER_EXPIRES;
+        reliability_decay            : 0;
+        cost_factor                  : 3500*255/3984;
+        running_cost_base            : RUNNING_COST_DIESEL;
+        running_cost_factor          : 1000*255/10358;
+        cargo_capacity               : 54;
+        refittable_cargo_classes     : bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes : bitmask();
+        dual_headed                  : 0;
+        length                       : 8;
+        sprite_id                    : SPRITE_ID_NEW_TRAIN;
+        visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+        misc_flags                   : bitmask(TRAIN_FLAG_2CC);
+    }
+    graphics {
+        additional_text              : return string(STR_CARRIAGE_EUROFIMA_DESC);
+        purchase                     : spriteset_carriage_eurofima_purchase;
+        default                      : switch_eurofima_graphics;
+    }
+}
+
+spriteset(spriteset_carriage_tee, "gfx/carriages/tee.png") {
+    tmpl_carriage()
+}
+
+spriteset(spriteset_carriage_tee_purchase, "gfx/carriages/tee.png") {
+    tmpl_carriage_purchase(-2)
+}
+
+switch (FEAT_TRAINS, SELF, switch_tee_graphics, getbits(extra_callback_info1, 0, 8)) {
+    0x11: spriteset_carriage_tee_purchase;
+    return spriteset_carriage_tee;
+}
+
+item(FEAT_TRAINS, item_tee, 10007) {
+    property {
+        track_type                   : RAIL;
+        engine_class                 : ENGINE_CLASS_DIESEL;
+        name                         : string(STR_CARRIAGE_TEE_NAME);
+        speed                        : 200 km/h;
+        power                        : 0 hp;
+        weight                       : 50 ton;
+        tractive_effort_coefficient  : 0.3;
+        air_drag_coefficient         : 0;
+        climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date            : date(1971, 1, 1);
+        model_life                   : VEHICLE_NEVER_EXPIRES;
+        reliability_decay            : 0;
+        cost_factor                  : 3500*255/3984;
+        running_cost_base            : RUNNING_COST_DIESEL;
+        running_cost_factor          : 1000*255/10358;
+        cargo_capacity               : 48;
+        refittable_cargo_classes     : bitmask(CC_PASSENGERS);
+        non_refittable_cargo_classes : bitmask();
+        dual_headed                  : 0;
+        length                       : 8;
+        sprite_id                    : SPRITE_ID_NEW_TRAIN;
+        visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_DISABLE, 0, DISABLE_WAGON_POWER);
+        misc_flags                   : bitmask(TRAIN_FLAG_2CC);
+    }
+    graphics {
+        additional_text              : return string(STR_CARRIAGE_TEE_DESC);
+        purchase                     : spriteset_carriage_tee_purchase;
+        default                      : switch_tee_graphics;
+    }
+}
+
+spriteset(spriteset_carriage_tipo1910, "gfx/carriages/tipo1910.png") {
+    tmpl_carriage()
+}
+
+spriteset(spriteset_carriage_tipo1910_purchase, "gfx/carriages/tipo1910.png") {
+    tmpl_carriage_purchase(0)
+}
+
+switch (FEAT_TRAINS, SELF, switch_tipo1910_graphics, getbits(extra_callback_info1, 0, 8)) {
+    0x11: spriteset_carriage_tipo1910_purchase;
+    return spriteset_carriage_tipo1910;
+}
+
+item(FEAT_TRAINS, item_tipo1910, 10001) {
     property {
         track_type                   : RAIL;
         engine_class                 : ENGINE_CLASS_DIESEL;
@@ -429,7 +521,7 @@ item(FEAT_TRAINS, item_Tipo1910, 10001) {
         reliability_decay            : 0;
         cost_factor                  : 500*255/3984;
         running_cost_base            : RUNNING_COST_DIESEL;
-        running_cost_factor          : 255;
+        running_cost_factor          : 100*255/10358;
         cargo_capacity               : 59;
         refittable_cargo_classes     : bitmask(CC_PASSENGERS);
         non_refittable_cargo_classes : bitmask();
@@ -441,25 +533,25 @@ item(FEAT_TRAINS, item_Tipo1910, 10001) {
     }
     graphics {
         additional_text              : return string(STR_CARRIAGE_TIPO1910_DESC);
-        purchase                     : spriteset_carriage_Tipo1910_purchase;
-        default                      : switch_Tipo1910_graphics;
+        purchase                     : spriteset_carriage_tipo1910_purchase;
+        default                      : switch_tipo1910_graphics;
     }
 }
 
-spriteset(spriteset_carriage_Tipo1928R, "gfx/carriages/Tipo1928R.png") {
+spriteset(spriteset_carriage_tipo1928R, "gfx/carriages/tipo1928R.png") {
     tmpl_carriage()
 }
 
-spriteset(spriteset_carriage_Tipo1928R_purchase, "gfx/carriages/Tipo1928R.png") {
-    tmpl_carriage_purchase()
+spriteset(spriteset_carriage_tipo1928R_purchase, "gfx/carriages/tipo1928R.png") {
+    tmpl_carriage_purchase(0)
 }
 
-switch (FEAT_TRAINS, SELF, switch_Tipo1928R_graphics, getbits(extra_callback_info1, 0, 8)) {
-    0x11: spriteset_carriage_Tipo1928R_purchase;
-    return spriteset_carriage_Tipo1928R;
+switch (FEAT_TRAINS, SELF, switch_tipo1928R_graphics, getbits(extra_callback_info1, 0, 8)) {
+    0x11: spriteset_carriage_tipo1928R_purchase;
+    return spriteset_carriage_tipo1928R;
 }
 
-item(FEAT_TRAINS, item_Tipo1928R, 10002) {
+item(FEAT_TRAINS, item_tipo1928R, 10002) {
     property {
         track_type                   : RAIL;
         engine_class                 : ENGINE_CLASS_DIESEL;
@@ -487,25 +579,25 @@ item(FEAT_TRAINS, item_Tipo1928R, 10002) {
     }
     graphics {
         additional_text              : return string(STR_CARRIAGE_TIPO1928R_DESC);
-        purchase                     : spriteset_carriage_Tipo1928R_purchase;
-        default                      : switch_Tipo1928R_graphics;
+        purchase                     : spriteset_carriage_tipo1928R_purchase;
+        default                      : switch_tipo1928R_graphics;
     }
 }
 
-spriteset(spriteset_carriage_Tipo1937, "gfx/carriages/Tipo1937.png") {
+spriteset(spriteset_carriage_tipo1937, "gfx/carriages/tipo1937.png") {
     tmpl_carriage()
 }
 
-spriteset(spriteset_carriage_Tipo1937_purchase, "gfx/carriages/Tipo1937.png") {
-    tmpl_carriage_purchase()
+spriteset(spriteset_carriage_tipo1937_purchase, "gfx/carriages/tipo1937.png") {
+    tmpl_carriage_purchase(0)
 }
 
-switch (FEAT_TRAINS, SELF, switch_Tipo1937_graphics, getbits(extra_callback_info1, 0, 8)) {
-    0x11: spriteset_carriage_Tipo1937_purchase;
-    return spriteset_carriage_Tipo1937;
+switch (FEAT_TRAINS, SELF, switch_tipo1937_graphics, getbits(extra_callback_info1, 0, 8)) {
+    0x11: spriteset_carriage_tipo1937_purchase;
+    return spriteset_carriage_tipo1937;
 }
 
-item(FEAT_TRAINS, item_Tipo1937, 10003) {
+item(FEAT_TRAINS, item_tipo1937, 10003) {
     property {
         track_type                   : RAIL;
         engine_class                 : ENGINE_CLASS_DIESEL;
@@ -533,9 +625,21 @@ item(FEAT_TRAINS, item_Tipo1937, 10003) {
     }
     graphics {
         additional_text              : return string(STR_CARRIAGE_TIPO1937_DESC);
-        purchase                     : spriteset_carriage_Tipo1937_purchase;
-        default                      : switch_Tipo1937_graphics;
+        purchase                     : spriteset_carriage_tipo1937_purchase;
+        default                      : switch_tipo1937_graphics;
     }
+}
+
+template tmpl_vehicle() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [   1,      1,       8,    18,      -3,      -10 ] // N
+    [  17,      1,      20,    16,     -14,       -7 ] // NE
+    [  49,      1,      28,    12,     -14,       -6 ] // E
+    [  97,      1,      20,    16,      -6,       -7 ] // SE
+    [ 129,      1,       8,    18,      -3,      -10 ] // S
+    [ 145,      1,      20,    16,     -14,       -7 ] // SW
+    [ 177,      1,      28,    12,     -14,       -6 ] // W
+    [ 225,      1,      20,    16,      -6,       -7 ] // NW
 }
 
 if (param_rename) {
@@ -546,15 +650,23 @@ if (param_rename) {
     }
 }
 
+spriteset(spriteset_vehicle_lanciaomicron, "gfx/vehicles/lanciaomicron.png") {
+    tmpl_vehicle()
+}
+
 if (param_vehicles) {
     item(FEAT_ROADVEHS, item_roadveh_0, 0) {
         property {
             speed                        : 50 km/h;
+            power                        : 93 hp;
+            weight                       : 7 ton;
             introduction_date            : date(1928, 1, 1);
             cargo_capacity               : 24;
+            sprite_id                    : SPRITE_ID_NEW_ROADVEH;
         }
         graphics {
             additional_text              : return string(STR_ROAD_MPSREGALBUS_DESC);
+            default                      : spriteset_vehicle_lanciaomicron;
         }
     }
 }

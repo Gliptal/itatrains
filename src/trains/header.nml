@@ -2,7 +2,7 @@ if (param_remove) {
     // train engines
     disable_item(FEAT_TRAINS, 0, 26);
     // train carriages
-    disable_item(FEAT_TRAINS, 27, 53);
+    disable_item(FEAT_TRAINS, 27, 27);
     // monorail engines
     disable_item(FEAT_TRAINS, 54, 56);
     // monorail carriages
