@@ -38,7 +38,7 @@ item(FEAT_TRAINS, item_691, 1004) {
         introduction_date            : date(1931, 1, 1);
         model_life                   : VEHICLE_NEVER_EXPIRES;
         vehicle_life                 : 29;
-        cost_factor                  : ENGINE_STEAM_COST_S;
+        cost_factor                  : ENGINE_STEAM_COST_L;
         running_cost_base            : RUNNING_COST_STEAM;
         running_cost_factor          : ENGINE_STEAM_UPKEEP_L;
         cargo_capacity               : 0;

@@ -2,56 +2,137 @@
 
 
 CD ..
+CALL :CheckParameters %1 %2 || GOTO Error
+GOTO Make
 
-ECHO %TIME:~0,8% [ TASK ] loading configuration
 
-CALL build\config.bat
+:Make
 
-ECHO %TIME:~0,8% [ TASK ] removing old .nml
+    CALL :LoadConfig || GOTO Error
+    CALL :PrepareLog || GOTO Error
 
-DEL %NML_NAME%.nml >nul 2>nul
-
-ECHO %TIME:~0,8% [ TASK ] generating new .nml
-
-TYPE nul > %NML_NAME%.nml
-(FOR /F "tokens=1" %%A IN (build\%FILES%.bat) DO (
-    FOR %%B IN (%%A) DO (
-        TYPE %%B
-        ECHO/
+    IF "%1"=="clean" (
+         CALL :Clean || GOTO Error
     )
-)) >> %NML_NAME%.nml 2>nul
-
-ECHO %TIME:~0,8% [ TASK ] replacing constants
-
-FOR /F "tokens=1,3" %%A IN (src\%CONSTANTS%.nml) DO (
-    ssed --in-place=.bck s@%%A@%%B@ itatrains.nml
-
-    IF ERRORLEVEL 1 (
-        ECHO %TIME:~0,8% [ FAIL ] replacing constants
-        GOTO End
+    IF "%1"=="purge" (
+        CALL :Purge || GOTO Error
+    )
+    IF "%1"=="build" (
+        CALL :Build || GOTO Error
+    )
+    IF "%1"=="test" (
+        CALL :Test || GOTO Error
     )
 
-    DEL %NML_NAME%.nml.bck >nul 2>nul
-)
+    IF "%1"=="publish" (
+        CALL :Publish || GOTO Error
+    )
+    IF "%1"=="bump" (
+        CALL :Bump %2 || GOTO Error
+    )
 
-ECHO %TIME:~0,8% [  OK  ] constants replaced
+    EXIT /B 0
 
-ECHO %TIME:~0,8% [ TASK ] removing old .grf
 
-DEL %GRF_NAME%.grf >nul 2>nul
+:CheckParameters
 
-ECHO %TIME:~0,8% [ TASK ] generating new .grf
+    IF "%1"=="" (
+        ECHO %TIME:~0,8% [ FAIL ] no option specified
+        GOTO Error
+    )
 
-IF "%1"=="/v" (
-    %NML_COMPILER% %NML_COMPILER_FLAGS% --grf %GRF_NAME%.grf %NML_NAME%.nml
-) ELSE (
-    %NML_COMPILER% %NML_COMPILER_FLAGS% --quiet --grf %GRF_NAME%.grf %NML_NAME%.nml
-)
+    IF NOT "%1"=="clean" IF NOT "%1"=="purge" IF NOT "%1"=="build" IF NOT "%1"=="test" IF NOT "%1"=="publish" IF NOT "%1"=="bump" (
+        ECHO %TIME:~0,8% [ FAIL ] no "%1" option
+        GOTO Error
+    )
 
-IF NOT ERRORLEVEL 1 (
-    ECHO %TIME:~0,8% [  OK  ] .grf generated
-) ELSE (
-    ECHO %TIME:~0,8% [ FAIL ] generating .grf
-)
+    IF "%1"=="bump" IF "%2"=="" (
+        ECHO %TIME:~0,8% [ FAIL ] no version specified
+        GOTO Error
+    )
 
-:End
+    GOTO :EOF
+
+
+:LoadConfig
+
+    ECHO %TIME:~0,8% [ TASK ] loading configuration
+
+    CALL build\config.bat
+
+    IF NOT ERRORLEVEL 1 (
+        ECHO %TIME:~0,8% [  OK  ] configuration loaded
+    ) ELSE (
+        ECHO %TIME:~0,8% [ FAIL ] loading configuration
+        GOTO Error
+    )
+
+    GOTO :EOF
+
+
+:PrepareLog
+
+    ECHO %TIME:~0,8% [ TASK ] preparing log
+
+    (ECHO/
+    ECHO %DATE% %TIME:~0,8% ) >>%ERROR_LOG%
+
+    IF NOT ERRORLEVEL 1 (
+        ECHO %TIME:~0,8% [  OK  ] log prepared
+    ) ELSE (
+        ECHO %TIME:~0,8% [ FAIL ] preparing log
+        GOTO Error
+    )
+
+    GOTO :EOF
+
+
+:Clean
+
+    CALL build\scripts\clean.bat || GOTO Error
+
+    GOTO :EOF
+
+
+:Purge
+
+    CALL :Clean || GOTO Error
+    CALL build\scripts\purge.bat || GOTO Error
+
+    GOTO :EOF
+
+
+:Build
+
+    CALL :Clean || GOTO Error
+    CALL build\scripts\build.bat /v || GOTO Error
+
+    GOTO :EOF
+
+
+:Test
+
+    CALL :Build || GOTO Error
+    CALL build\scripts\test.bat || GOTO Error
+
+    GOTO :EOF
+
+
+:Publish
+
+    CALL :Build || GOTO Error
+    CALL build\scripts\publish.bat || GOTO Error
+
+    GOTO :EOF
+
+
+:Bump
+
+    CALL build\scripts\bump.bat %1 || GOTO Error
+
+    GOTO :EOF
+
+
+:Error
+
+    EXIT /B 1

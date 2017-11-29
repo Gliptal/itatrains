@@ -1,3 +1,13 @@
+CONNECTION CLASSES:
+
+  acronym     class     distance   stops     area
+ --------- ----------- ---------- ------- ----------
+  C         commuter    short      all     suburban
+  R         regional    medium     most    region
+  I         intercity   long       few     country
+  E         express     long       none    country
+
+
 AVAILABLE ENGINES:
 
   model    type    original gfx   modified gfx
@@ -6,6 +16,7 @@ AVAILABLE ENGINES:
   685      steam   2CC            Gliptal
   746      steam   2CC            Gliptal
   691      steam   2CC            Gliptal
+
 
 AVAILABLE CARRIAGES:
 
@@ -17,11 +28,13 @@ AVAILABLE CARRIAGES:
   TEE          ToE            Emperor Jake
   Eurofima     ToE            Emperor Jake
 
+
 MODIFIED VEHICLES:
 
   model           renamed to       original gfx   modified gfx
  --------------- ---------------- -------------- --------------
   MPS Regal Bus   Lancia Omicron   OpenGFX        Gliptal
+
 
 SUGGESTED LIVERIES:
 
