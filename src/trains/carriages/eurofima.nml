@@ -11,7 +11,7 @@ switch (FEAT_TRAINS, SELF, switch_eurofima_graphics, getbits(extra_callback_info
     return spriteset_carriage_eurofima;
 }
 
-item(FEAT_TRAINS, item_eurofima, 10008) {
+item(FEAT_TRAINS, item_eurofima, 10009) {
     property {
         track_type                   : RAIL;
         engine_class                 : ENGINE_CLASS_DIESEL;

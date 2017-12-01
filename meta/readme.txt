@@ -20,13 +20,22 @@ AVAILABLE ENGINES:
 
 AVAILABLE CARRIAGES:
 
-  model        original gfx   modified gfx
- ------------ -------------- --------------
-  Tipo 1910    2CC            Gliptal
-  Tipo 1928R   2CC            Gliptal
-  Tipo1937     2CC            Gliptal
-  TEE          ToE            Emperor Jake
-  Eurofima     ToE            Emperor Jake
+  model          original gfx   modified gfx
+ -------------- -------------- --------------
+  Tipo 1910      2CC            Gliptal
+  Tipo 1928R     2CC            Gliptal
+  Tipo1937       2CC            Gliptal
+  Tipo1947
+  Tipo1959
+  UIC-X
+  TEE            ToE            Emperor Jake
+  Gran Confort
+  Eurofima       ToE            Emperor Jake
+  Tipo 1979
+  MDVC
+  MDVE
+  UIC-Z1
+  NCDP
 
 
 MODIFIED VEHICLES:

@@ -1,3 +1,15 @@
+### 0.8.0 | *2017-11-29*
+---
+- **added:**
+    - carriage: Tipo 1959 (placeholder)
+    - carriage: UIC-X (placeholder)
+    - carriage: Gran Confort (placeholder)
+    - carriage: Tipo 1979 (placeholder)
+    - carriage: MDVC (placeholder)
+    - carriage: MDVE (placeholder)
+    - carriage: UIC-Z1 (placeholder)
+    - carriage: NCDP (placeholder)
+
 ### 0.7.0 | *2017-11-29*
 ---
 - **added:**
