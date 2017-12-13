@@ -33,6 +33,10 @@ STR_TRAIN_STEAM_746_DESC :Decay:{GOLD} High{BLACK}{}{}Usage:{GOLD} Passengers{BL
 STR_TRAIN_STEAM_691_NAME :691
 STR_TRAIN_STEAM_691_DESC :Decay:{GOLD} Normal{BLACK}{}{}Usage:{GOLD} Passengers{BLACK}{}Class:{GOLD} I{BLACK}{}Terrain:{GOLD} Flat{BLACK}
 
+# trains (diesel)
+STR_TRAIN_DIESEL_D341_NAME :D.341
+STR_TRAIN_DIESEL_D341_DESC :Decay:{GOLD} Normal{BLACK}{}{}Usage:{GOLD} Passengers/Freight{BLACK}{}Class:{GOLD} R/I{BLACK}{}Terrain:{GOLD} Hilly/Mountainous{BLACK}
+
 # carriages
 STR_CARRIAGE_TIPO1910_NAME    :Tipo 1910
 STR_CARRIAGE_TIPO1910_DESC    :Designed:{GOLD} 1910{BLACK}{}{}Class:{GOLD} R/I{BLACK}

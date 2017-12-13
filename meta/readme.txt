@@ -1,13 +1,3 @@
-CONNECTION CLASSES:
-
-  acronym     class     distance   stops     area
- --------- ----------- ---------- ------- ----------
-  C         commuter    short      all     suburban
-  R         regional    medium     most    region
-  I         intercity   long       few     country
-  E         express     long       none    country
-
-
 AVAILABLE ENGINES:
 
   model    type    original gfx   modified gfx
@@ -16,6 +6,7 @@ AVAILABLE ENGINES:
   685      steam   2CC            Gliptal
   746      steam   2CC            Gliptal
   691      steam   2CC            Gliptal
+  D.341    diesel  2CC            Gliptal
 
 
 AVAILABLE CARRIAGES:
@@ -27,7 +18,7 @@ AVAILABLE CARRIAGES:
   Tipo1937       2CC            Gliptal
   Tipo1947
   Tipo1959
-  UIC-X
+  UIC-X          2CC            Gliptal
   TEE            ToE            Emperor Jake
   Gran Confort
   Eurofima       ToE            Emperor Jake
@@ -35,7 +26,7 @@ AVAILABLE CARRIAGES:
   MDVC
   MDVE
   UIC-Z1
-  NCDP
+  NCDP           2CC            Gliptal
 
 
 MODIFIED VEHICLES:
@@ -49,5 +40,14 @@ SUGGESTED LIVERIES:
 
   class      type              primary   secondary
  ---------- ----------------- --------- -----------
-  trains     steam engine      grey      grey
   vehicles   bus               orange    dark blue
+
+
+CONNECTION CLASSES:
+
+  acronym     class     distance   stops     area
+ --------- ----------- ---------- ------- ----------
+  C         commuter    short      all     suburban
+  R         regional    medium     most    region
+  I         intercity   long       few     country
+  E         express     long       none    country

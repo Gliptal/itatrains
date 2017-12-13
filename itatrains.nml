@@ -116,9 +116,14 @@ template tmpl_train_steam_purchase() {
     [   1,     51,      64,    12,     -36,       -8 ] // W
 }
 
+template tmpl_train_diesel_purchase() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [   1,     26,      64,    12,     -40,       -8 ] // W
+}
+
 template tmpl_carriage_purchase(x) {
     //left_x, upper_y, width, height, offset_x, offset_y
-    [ 121,      1,      32,    16,    x-16,      -12 ] // W
+    [ 121,      1,      32,    16,    x-18,      -12 ] // W
 }
 
 template tmpl_train_steam() {
@@ -143,6 +148,18 @@ template tmpl_train_tender() {
     [  98,     26,      22,    20,     -14,      -12 ] // SW
     [ 121,     26,      32,    16,     -16,      -12 ] // W
     [ 154,     26,      22,    20,      -6,      -12 ] // NW
+}
+
+template tmpl_train_diesel() {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [   1,      1,       8,    24,      -3,      -12 ] // N
+    [  10,      1,      22,    20,     -14,      -12 ] // NE
+    [  33,      1,      32,    16,     -16,      -12 ] // E
+    [  66,      1,      22,    20,      -6,      -12 ] // SE
+    [  89,      1,       8,    24,      -3,      -12 ] // S
+    [  98,      1,      22,    20,     -14,      -12 ] // SW
+    [ 121,      1,      32,    16,     -16,      -12 ] // W
+    [ 154,      1,      22,    20,      -6,      -12 ] // NW
 }
 
 template tmpl_carriage() {
@@ -400,12 +417,51 @@ item(FEAT_TRAINS, item_746, 1003) {
     }
 }
 
+spriteset(spriteset_diesel_d341, "gfx/diesel/d341.png") {
+    tmpl_train_diesel()
+}
+
+spriteset(spriteset_diesel_d341_purchase, "gfx/diesel/d341.png") {
+    tmpl_train_diesel_purchase()
+}
+
+item(FEAT_TRAINS, item_d341, 1101) {
+    property {
+        track_type                   : RAIL;
+        engine_class                 : ENGINE_CLASS_DIESEL;
+        name                         : string(STR_TRAIN_DIESEL_D341_NAME);
+        speed                        : 110 km/h;
+        power                        : 1381 hp;
+        weight                       : 67 ton;
+        tractive_effort_coefficient  : 0.3;
+        climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date            : date(1957, 1, 1);
+        model_life                   : VEHICLE_NEVER_EXPIRES;
+        vehicle_life                 : 34;
+        cost_factor                  : 20;
+        running_cost_base            : RUNNING_COST_DIESEL;
+        running_cost_factor          : 60;
+        cargo_capacity               : 0;
+        refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
+        non_refittable_cargo_classes : bitmask();
+        dual_headed                  : 0;
+        sprite_id                    : SPRITE_ID_NEW_TRAIN;
+        visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_DIESEL, 0, DISABLE_WAGON_POWER);
+        misc_flags                   : bitmask(TRAIN_FLAG_2CC);
+    }
+    graphics {
+        additional_text              : return string(STR_TRAIN_DIESEL_D341_DESC);
+        purchase                     : spriteset_diesel_d341_purchase;
+        default                      : spriteset_diesel_d341;
+    }
+}
+
 spriteset(spriteset_carriage_eurofima, "gfx/carriages/eurofima.png") {
     tmpl_carriage()
 }
 
 spriteset(spriteset_carriage_eurofima_purchase, "gfx/carriages/eurofima.png") {
-    tmpl_carriage_purchase(-2)
+    tmpl_carriage_purchase(0)
 }
 
 switch (FEAT_TRAINS, SELF, switch_eurofima_graphics, getbits(extra_callback_info1, 0, 8)) {
@@ -584,11 +640,11 @@ item(FEAT_TRAINS, item_mdve, 10012) {
     }
 }
 
-spriteset(spriteset_carriage_ncdp, "gfx/carriages/placeholder.png") {
+spriteset(spriteset_carriage_ncdp, "gfx/carriages/ncdp.png") {
     tmpl_carriage()
 }
 
-spriteset(spriteset_carriage_ncdp_purchase, "gfx/carriages/placeholder.png") {
+spriteset(spriteset_carriage_ncdp_purchase, "gfx/carriages/ncdp.png") {
     tmpl_carriage_purchase(0)
 }
 
@@ -635,7 +691,7 @@ spriteset(spriteset_carriage_tee, "gfx/carriages/tee.png") {
 }
 
 spriteset(spriteset_carriage_tee_purchase, "gfx/carriages/tee.png") {
-    tmpl_carriage_purchase(-2)
+    tmpl_carriage_purchase(0)
 }
 
 switch (FEAT_TRAINS, SELF, switch_tee_graphics, getbits(extra_callback_info1, 0, 8)) {
@@ -681,7 +737,7 @@ spriteset(spriteset_carriage_tipo1910, "gfx/carriages/tipo1910.png") {
 }
 
 spriteset(spriteset_carriage_tipo1910_purchase, "gfx/carriages/tipo1910.png") {
-    tmpl_carriage_purchase(0)
+    tmpl_carriage_purchase(2)
 }
 
 switch (FEAT_TRAINS, SELF, switch_tipo1910_graphics, getbits(extra_callback_info1, 0, 8)) {
@@ -727,7 +783,7 @@ spriteset(spriteset_carriage_tipo1928R, "gfx/carriages/tipo1928R.png") {
 }
 
 spriteset(spriteset_carriage_tipo1928R_purchase, "gfx/carriages/tipo1928R.png") {
-    tmpl_carriage_purchase(0)
+    tmpl_carriage_purchase(2)
 }
 
 switch (FEAT_TRAINS, SELF, switch_tipo1928R_graphics, getbits(extra_callback_info1, 0, 8)) {
@@ -773,7 +829,7 @@ spriteset(spriteset_carriage_tipo1937, "gfx/carriages/tipo1937.png") {
 }
 
 spriteset(spriteset_carriage_tipo1937_purchase, "gfx/carriages/tipo1937.png") {
-    tmpl_carriage_purchase(0)
+    tmpl_carriage_purchase(2)
 }
 
 switch (FEAT_TRAINS, SELF, switch_tipo1937_graphics, getbits(extra_callback_info1, 0, 8)) {
@@ -952,11 +1008,11 @@ item(FEAT_TRAINS, item_tipo1979, 10010) {
     }
 }
 
-spriteset(spriteset_carriage_uicx, "gfx/carriages/placeholder.png") {
+spriteset(spriteset_carriage_uicx, "gfx/carriages/uicx.png") {
     tmpl_carriage()
 }
 
-spriteset(spriteset_carriage_uicx_purchase, "gfx/carriages/placeholder.png") {
+spriteset(spriteset_carriage_uicx_purchase, "gfx/carriages/uicx.png") {
     tmpl_carriage_purchase(0)
 }
 
@@ -1075,6 +1131,7 @@ if (param_vehicles) {
             power                        : 93 hp;
             weight                       : 7 ton;
             introduction_date            : date(1928, 1, 1);
+            vehicle_life                 : 29;
             cargo_capacity               : 24;
             sprite_id                    : SPRITE_ID_NEW_ROADVEH;
         }

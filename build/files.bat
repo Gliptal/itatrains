@@ -2,6 +2,7 @@ src\header.nml
 src\trains\header.nml
 src\trains\templates.nml
 src\trains\steam\*.nml
+src\trains\diesel\*.nml
 src\trains\carriages\*.nml
 src\vehicles\templates.nml
 src\vehicles\rename.nml

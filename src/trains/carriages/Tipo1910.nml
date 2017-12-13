@@ -3,7 +3,7 @@ spriteset(spriteset_carriage_tipo1910, "gfx/carriages/tipo1910.png") {
 }
 
 spriteset(spriteset_carriage_tipo1910_purchase, "gfx/carriages/tipo1910.png") {
-    tmpl_carriage_purchase(0)
+    tmpl_carriage_purchase(2)
 }
 
 switch (FEAT_TRAINS, SELF, switch_tipo1910_graphics, getbits(extra_callback_info1, 0, 8)) {

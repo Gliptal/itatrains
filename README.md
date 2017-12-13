@@ -1,3 +1,18 @@
+### 0.9.0 | *2017-12-13*
+---
+- **added:**
+    - train (diesel): D.341
+- **changed:**
+    - multiple sprites alignments
+    - carriage placeholder sprite
+    - train (steam): 740
+    - train (steam): 685
+    - train (steam): 746
+    - train (steam): 691
+    - carriage: UIC-X (sprites)
+    - carriage: NCDP (sprites)
+    - vehicle: Lancia Omicron
+
 ### 0.8.0 | *2017-11-29*
 ---
 - **added:**

@@ -41,7 +41,7 @@ GOTO Bump
     ) >NUL 2>>%ERROR_LOG%
 
     (FOR /F tokens^=4^ delims^=\^" %%A IN (src/header.nml) DO (
-        SETLOCAL enabledelayedexpansion
+        SETLOCAL ENABLEDELAYEDEXPANSION
         SET ORIG=%%A
         %BASH% -c "printf '%%.2X' $((0x!ORIG!+1))" >tmp || GOTO Break
         SET /p BUMP=<tmp

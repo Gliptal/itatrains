@@ -1,9 +1,9 @@
 grf {
-    grfid                  : "MA\01\08";
+    grfid                  : "MA\01\09";
     name                   : string(STR_GRF_NAME);
     desc                   : string(STR_GRF_DESC);
     url                    : string(STR_GRF_URL);
-    version                : 8;
+    version                : 9;
     min_compatible_version : 0;
 
     param {

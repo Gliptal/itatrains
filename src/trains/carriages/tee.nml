@@ -3,7 +3,7 @@ spriteset(spriteset_carriage_tee, "gfx/carriages/tee.png") {
 }
 
 spriteset(spriteset_carriage_tee_purchase, "gfx/carriages/tee.png") {
-    tmpl_carriage_purchase(-2)
+    tmpl_carriage_purchase(0)
 }
 
 switch (FEAT_TRAINS, SELF, switch_tee_graphics, getbits(extra_callback_info1, 0, 8)) {

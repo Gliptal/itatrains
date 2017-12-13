@@ -9,6 +9,7 @@ if (param_vehicles) {
             power                        : 93 hp;
             weight                       : 7 ton;
             introduction_date            : date(1928, 1, 1);
+            vehicle_life                 : 29;
             cargo_capacity               : 24;
             sprite_id                    : SPRITE_ID_NEW_ROADVEH;
         }
