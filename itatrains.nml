@@ -1,9 +1,9 @@
 grf {
-    grfid                  : "MA\01\08";
+    grfid                  : "MA\01\0A";
     name                   : string(STR_GRF_NAME);
     desc                   : string(STR_GRF_DESC);
     url                    : string(STR_GRF_URL);
-    version                : 8;
+    version                : 10;
     min_compatible_version : 0;
 
     param {
@@ -118,7 +118,7 @@ template tmpl_train_steam_purchase() {
 
 template tmpl_train_diesel_purchase() {
     //left_x, upper_y, width, height, offset_x, offset_y
-    [   1,     26,      64,    12,     -40,       -8 ] // W
+    [   1,     26,      64,    12,     -39,       -8 ] // W
 }
 
 template tmpl_carriage_purchase(x) {
@@ -453,6 +453,162 @@ item(FEAT_TRAINS, item_d341, 1101) {
         additional_text              : return string(STR_TRAIN_DIESEL_D341_DESC);
         purchase                     : spriteset_diesel_d341_purchase;
         default                      : spriteset_diesel_d341;
+    }
+}
+
+spriteset(spriteset_diesel_d343, "gfx/diesel/placeholder.png") {
+    tmpl_train_diesel()
+}
+
+spriteset(spriteset_diesel_d343_purchase, "gfx/diesel/placeholder.png") {
+    tmpl_train_diesel_purchase()
+}
+
+item(FEAT_TRAINS, item_d343, 1102) {
+    property {
+        track_type                   : RAIL;
+        engine_class                 : ENGINE_CLASS_DIESEL;
+        name                         : string(STR_TRAIN_DIESEL_D343_NAME);
+        speed                        : 130 km/h;
+        power                        : 1053 hp;
+        weight                       : 61 ton;
+        tractive_effort_coefficient  : 0.3;
+        climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date            : date(1967, 1, 1);
+        model_life                   : VEHICLE_NEVER_EXPIRES;
+        vehicle_life                 : 35;
+        cost_factor                  : 25;
+        running_cost_base            : RUNNING_COST_DIESEL;
+        running_cost_factor          : 120;
+        cargo_capacity               : 0;
+        refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
+        non_refittable_cargo_classes : bitmask();
+        dual_headed                  : 0;
+        sprite_id                    : SPRITE_ID_NEW_TRAIN;
+        visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_DIESEL, 0, DISABLE_WAGON_POWER);
+        misc_flags                   : bitmask(TRAIN_FLAG_2CC);
+    }
+    graphics {
+        additional_text              : return string(STR_TRAIN_DIESEL_D343_DESC);
+        purchase                     : spriteset_diesel_d343_purchase;
+        default                      : spriteset_diesel_d343;
+    }
+}
+
+spriteset(spriteset_diesel_d345, "gfx/diesel/placeholder.png") {
+    tmpl_train_diesel()
+}
+
+spriteset(spriteset_diesel_d345_purchase, "gfx/diesel/placeholder.png") {
+    tmpl_train_diesel_purchase()
+}
+
+item(FEAT_TRAINS, item_d345, 1104) {
+    property {
+        track_type                   : RAIL;
+        engine_class                 : ENGINE_CLASS_DIESEL;
+        name                         : string(STR_TRAIN_DIESEL_D345_NAME);
+        speed                        : 130 km/h;
+        power                        : 1005 hp;
+        weight                       : 62 ton;
+        tractive_effort_coefficient  : 0.3;
+        climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date            : date(1970, 1, 1);
+        model_life                   : VEHICLE_NEVER_EXPIRES;
+        vehicle_life                 : 50;
+        cost_factor                  : 30;
+        running_cost_base            : RUNNING_COST_DIESEL;
+        running_cost_factor          : 180;
+        cargo_capacity               : 0;
+        refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
+        non_refittable_cargo_classes : bitmask();
+        dual_headed                  : 0;
+        sprite_id                    : SPRITE_ID_NEW_TRAIN;
+        visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_DIESEL, 0, DISABLE_WAGON_POWER);
+        misc_flags                   : bitmask(TRAIN_FLAG_2CC);
+    }
+    graphics {
+        additional_text              : return string(STR_TRAIN_DIESEL_D345_DESC);
+        purchase                     : spriteset_diesel_d345_purchase;
+        default                      : spriteset_diesel_d345;
+    }
+}
+
+spriteset(spriteset_diesel_d443, "gfx/diesel/placeholder.png") {
+    tmpl_train_diesel()
+}
+
+spriteset(spriteset_diesel_d443_purchase, "gfx/diesel/placeholder.png") {
+    tmpl_train_diesel_purchase()
+}
+
+item(FEAT_TRAINS, item_d443, 1103) {
+    property {
+        track_type                   : RAIL;
+        engine_class                 : ENGINE_CLASS_DIESEL;
+        name                         : string(STR_TRAIN_DIESEL_D443_NAME);
+        speed                        : 130 km/h;
+        power                        : 1250 hp;
+        weight                       : 61 ton;
+        tractive_effort_coefficient  : 0.3;
+        climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date            : date(1967, 1, 1);
+        model_life                   : VEHICLE_NEVER_EXPIRES;
+        vehicle_life                 : 50;
+        cost_factor                  : 30;
+        running_cost_base            : RUNNING_COST_DIESEL;
+        running_cost_factor          : 180;
+        cargo_capacity               : 0;
+        refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
+        non_refittable_cargo_classes : bitmask();
+        dual_headed                  : 0;
+        sprite_id                    : SPRITE_ID_NEW_TRAIN;
+        visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_DIESEL, 0, DISABLE_WAGON_POWER);
+        misc_flags                   : bitmask(TRAIN_FLAG_2CC);
+    }
+    graphics {
+        additional_text              : return string(STR_TRAIN_DIESEL_D443_DESC);
+        purchase                     : spriteset_diesel_d443_purchase;
+        default                      : spriteset_diesel_d443;
+    }
+}
+
+spriteset(spriteset_diesel_d445, "gfx/diesel/placeholder.png") {
+    tmpl_train_diesel()
+}
+
+spriteset(spriteset_diesel_d445_purchase, "gfx/diesel/placeholder.png") {
+    tmpl_train_diesel_purchase()
+}
+
+item(FEAT_TRAINS, item_d445, 1105) {
+    property {
+        track_type                   : RAIL;
+        engine_class                 : ENGINE_CLASS_DIESEL;
+        name                         : string(STR_TRAIN_DIESEL_D445_NAME);
+        speed                        : 130 km/h;
+        power                        : 2091 hp;
+        weight                       : 76 ton;
+        tractive_effort_coefficient  : 0.3;
+        climates_available           : bitmask(CLIMATE_TEMPERATE, CLIMATE_ARCTIC, CLIMATE_TROPICAL);
+        introduction_date            : date(1975, 1, 1);
+        model_life                   : VEHICLE_NEVER_EXPIRES;
+        vehicle_life                 : 50;
+        cost_factor                  : 35;
+        running_cost_base            : RUNNING_COST_DIESEL;
+        running_cost_factor          : 240;
+        cargo_capacity               : 0;
+        refittable_cargo_classes     : bitmask(NO_CARGO_CLASS);
+        non_refittable_cargo_classes : bitmask();
+        dual_headed                  : 0;
+        sprite_id                    : SPRITE_ID_NEW_TRAIN;
+        visual_effect_and_powered    : visual_effect_and_powered(VISUAL_EFFECT_DIESEL, 0, DISABLE_WAGON_POWER);
+        misc_flags                   : bitmask(TRAIN_FLAG_2CC);
+    }
+    graphics {
+        additional_text              : return string(STR_TRAIN_DIESEL_D445_DESC);
+        purchase                     : spriteset_diesel_d445_purchase;
+        default                      : spriteset_diesel_d445;
     }
 }
 

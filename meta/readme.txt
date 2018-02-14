@@ -7,6 +7,10 @@ AVAILABLE ENGINES:
   746      steam   2CC            Gliptal
   691      steam   2CC            Gliptal
   D.341    diesel  2CC            Gliptal
+  D.343    diesel
+  D.443    diesel
+  D.345    diesel
+  D.445    diesel
 
 
 AVAILABLE CARRIAGES:

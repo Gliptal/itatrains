@@ -1,3 +1,13 @@
+### 0.10.0 | *2017-12-*
+---
+- **added:**
+    - train (diesel): D.343
+    - train (diesel): D.443
+    - train (diesel): D.345
+    - train (diesel): D.445
+- **changed:**
+    - placeholder sprites
+
 ### 0.9.0 | *2017-12-13*
 ---
 - **added:**

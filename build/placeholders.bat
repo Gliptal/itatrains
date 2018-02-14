@@ -5,3 +5,7 @@ tipo1979
 mdvc
 mdve
 uicz1
+d343
+d443
+d345
+d445
